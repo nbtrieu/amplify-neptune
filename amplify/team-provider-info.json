@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-persondb-dev-18584-authRole",
+      "UnauthRoleArn": "arn:aws:iam::256056681342:role/amplify-persondb-dev-18584-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::256056681342:role/amplify-persondb-dev-18584-authRole",
+      "Region": "ap-southeast-1",
+      "DeploymentBucketName": "amplify-persondb-dev-18584-deployment",
+      "UnauthRoleName": "amplify-persondb-dev-18584-unauthRole",
+      "StackName": "amplify-persondb-dev-18584",
+      "StackId": "arn:aws:cloudformation:ap-southeast-1:256056681342:stack/amplify-persondb-dev-18584/0c0a2e80-f122-11ee-b362-021149a4371f",
+      "AmplifyAppId": "dtwc9nitwkjar"
+    }
+  }
+}
