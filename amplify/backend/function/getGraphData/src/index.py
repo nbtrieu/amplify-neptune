@@ -15,8 +15,9 @@ def handler(event, context):
         # print("GREMLIN URL", gremlin_url)
 
         ssl_context = ssl.create_default_context(cafile=certifi.where())
-        print(ssl_context)
-        # gremlin_client = DriverRemoteConnection(gremlin_url, "g", ssl_context=ssl_context)
+        # print(ssl_context)
+        gremlin_client = DriverRemoteConnection(gremlin_url, "g", ssl_context=ssl_context)
+        print(gremlin_client)
         # g = traversal().withRemote(gremlin_client)
         # node_count = g.V().count().next()
 
