@@ -12,7 +12,7 @@ def handler(event, context):
         print(event)
 
         gremlin_url = "wss://db-bio-annotations.cluster-cu9wyuyqqen8.ap-southeast-1.neptune.amazonaws.com:8182/gremlin"
-        print(gremlin_url)
+        print("GREMLIN URL", gremlin_url)
 
         # ssl_context = ssl.create_default_context(cafile=certifi.where())
         # gremlin_client = DriverRemoteConnection(gremlin_url, "g", ssl_context=ssl_context)
