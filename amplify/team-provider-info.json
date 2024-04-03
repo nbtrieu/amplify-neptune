@@ -22,7 +22,7 @@
         },
         "getGraphData": {
           "deploymentBucketName": "amplify-persondb-dev-18584-deployment",
-          "s3Key": "amplify-builds/getGraphData-75385744302b7467596b-build.zip"
+          "s3Key": "amplify-builds/getGraphData-562b4e6a77555568392f-build.zip"
         }
       }
     }
