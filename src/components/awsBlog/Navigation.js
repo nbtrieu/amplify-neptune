@@ -1,7 +1,7 @@
 import {useState} from 'react';
 
 import { Amplify} from 'aws-amplify';
-import awsmobile from '../aws-exports';
+import awsmobile from '../../aws-exports';
 import { Link } from 'react-router-dom'
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';

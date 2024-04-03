@@ -10,6 +10,18 @@
       "StackName": "amplify-persondb-dev-18584",
       "StackId": "arn:aws:cloudformation:ap-southeast-1:256056681342:stack/amplify-persondb-dev-18584/0c0a2e80-f122-11ee-b362-021149a4371f",
       "AmplifyAppId": "dtwc9nitwkjar"
+    },
+    "categories": {
+      "auth": {
+        "persondb34f1358f": {}
+      },
+      "function": {
+        "persondbgremlin": {
+          "deploymentBucketName": "amplify-persondb-dev-18584-deployment",
+          "s3Key": "amplify-builds/persondbgremlin-LambdaLayerVersion1579cf3b-build.zip"
+        },
+        "getGraphData": {}
+      }
     }
   }
 }

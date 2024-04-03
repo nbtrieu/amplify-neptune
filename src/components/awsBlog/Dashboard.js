@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import awsmobile from '../aws-exports';
+import awsmobile from '../../aws-exports';
 // import PropTypes from 'prop-types'
 
 
