@@ -41,6 +41,22 @@
     }
   },
   "parameters": {
+    "AMPLIFY_function_getGraphData_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getGraphData"
+        }
+      ]
+    },
+    "AMPLIFY_function_getGraphData_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getGraphData"
+        }
+      ]
+    },
     "AMPLIFY_function_persondbgremlin_deploymentBucketName": {
       "usedBy": [
         {

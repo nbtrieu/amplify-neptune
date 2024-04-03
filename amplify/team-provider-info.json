@@ -20,7 +20,10 @@
           "deploymentBucketName": "amplify-persondb-dev-18584-deployment",
           "s3Key": "amplify-builds/persondbgremlin-LambdaLayerVersion1579cf3b-build.zip"
         },
-        "getGraphData": {}
+        "getGraphData": {
+          "deploymentBucketName": "amplify-persondb-dev-18584-deployment",
+          "s3Key": "amplify-builds/getGraphData-344a463638565a456d52-build.zip"
+        }
       }
     }
   }
