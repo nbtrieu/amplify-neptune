@@ -38,7 +38,7 @@ import aiohttp
 
 async def test_aiohttp():
     async with aiohttp.ClientSession() as session:
-        async with session.get('https://catfact.ninja/fact') as response:
+        async with session.get('https://api.publicapis.org/entries') as response:
             if response.status == 200:
                 data = await response.json()
                 print(data)
