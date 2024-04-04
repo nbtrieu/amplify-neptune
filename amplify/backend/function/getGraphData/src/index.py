@@ -37,29 +37,24 @@ import http.client
 
 def handler(event, context):
     try:
-        # Test connectivity using http.client
-        host = 'catfact.ninja'
-        port = 443
-        timeout = 1000
+        conn = http.client.HTTPSConnection("www.example.com")
+        conn.request("GET", "/")
+        response = conn.getresponse()
 
-        try:
-            conn = http.client.HTTPSConnection(host, port, timeout=timeout)
-            conn.request("GET", "/fact")
-            response = conn.getresponse()
-            print(f"Status: {response.status} {response.reason}")
-            conn.close()
-        except http.client.HTTPException as e:
-            print(f"HTTP error occurred: {str(e)}")
-        except Exception as e:
-            print(f"An error occurred: {str(e)}")
+        if response.status == 200:
+            print("HTTPS request succeeded")
+        else:
+            print(f"HTTPS request failed with status: {response.status}")
+
+        conn.close()
 
         return {
             'statusCode': 200,
-            'body': 'Connectivity test completed'
+            'body': 'HTTPS request test completed'
         }
     except Exception as e:
         print(f"An error occurred: {str(e)}")
         return {
             'statusCode': 500,
-            'body': 'Connectivity test failed'
+            'body': 'HTTPS request test failed'
         }
