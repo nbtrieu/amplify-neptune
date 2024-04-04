@@ -12,3 +12,4 @@ nest-asyncio==1.6.0
 six==1.16.0
 -e git+https://github.com/nbtrieu/amplify-neptune.git@6ee792248cd6f9d9f57a5411c53cb995ac0a2e0f#egg=src&subdirectory=amplify/backend/function/getGraphData/src
 yarl==1.9.4
+requests

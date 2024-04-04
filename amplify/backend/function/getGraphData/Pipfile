@@ -11,6 +11,7 @@ src = {editable = true, path = "./src"}
 aiohttp = "*"
 certifi = "*"
 gremlinpython = "*"
+requests = "*"
 
 [requires]
 python_version = "3.11"

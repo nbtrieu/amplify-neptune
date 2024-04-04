@@ -32,30 +32,52 @@
 #             'body': json.dumps({'error': 'An error occurred while processing your request.'})
 #         }
 
-import asyncio
-import aiohttp
+# import asyncio
+# import aiohttp
 
 
-async def test_aiohttp():
-    async with aiohttp.ClientSession() as session:
-        async with session.get('https://api.publicapis.org/entries') as response:
-            if response.status == 200:
-                data = await response.json()
-                print(data)
-            else:
-                print(f"Request failed with status: {response.status}")
+# async def test_aiohttp():
+#     async with aiohttp.ClientSession() as session:
+#         async with session.get('https://api.publicapis.org/entries') as response:
+#             if response.status == 200:
+#                 data = await response.json()
+#                 print(data)
+#             else:
+#                 print(f"Request failed with status: {response.status}")
 
 
-def handler(event, context):
+# def handler(event, context):
+#     try:
+#         asyncio.run(test_aiohttp())
+#         return {
+#             'statusCode': 200,
+#             'body': 'aiohttp test succeeded'
+#         }
+#     except Exception as e:
+#         print(f"An error occurred: {str(e)}")
+#         return {
+#             'statusCode': 500,
+#             'body': 'aiohttp test failed'
+#         }
+
+import requests
+
+
+def lambda_handler(event, context):
     try:
-        asyncio.run(test_aiohttp())
+        response = requests.get('https://api.publicapis.org/entries')
+        if response.status_code == 200:
+            data = response.json()
+            print(data)
+        else:
+            print(f"Request failed with status: {response.status_code}")
         return {
             'statusCode': 200,
-            'body': 'aiohttp test succeeded'
+            'body': 'API request test succeeded'
         }
     except Exception as e:
         print(f"An error occurred: {str(e)}")
         return {
             'statusCode': 500,
-            'body': 'aiohttp test failed'
+            'body': 'API request test failed'
         }
