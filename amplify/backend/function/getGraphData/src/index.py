@@ -46,7 +46,7 @@ async def test_aiohttp():
                 print(f"Request failed with status: {response.status}")
 
 
-def lambda_handler(event, context):
+def handler(event, context):
     try:
         asyncio.run(test_aiohttp())
         return {
