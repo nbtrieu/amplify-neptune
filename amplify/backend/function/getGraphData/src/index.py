@@ -63,7 +63,7 @@
 import requests
 
 
-def lambda_handler(event, context):
+def handler(event, context):
     try:
         response = requests.get('https://api.publicapis.org/entries')
         if response.status_code == 200:
