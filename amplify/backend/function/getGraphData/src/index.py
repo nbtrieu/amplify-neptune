@@ -90,7 +90,7 @@ def handler(event, context):
         # Test connectivity using socket
         host = 'catfact.ninja'
         port = 443
-        timeout = 5
+        timeout = 1000
 
         try:
             sock = socket.create_connection((host, port), timeout=timeout)
