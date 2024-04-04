@@ -60,24 +60,48 @@
 #             'body': 'aiohttp test failed'
 #         }
 
-import requests
+# import requests
+
+
+# def handler(event, context):
+#     try:
+#         response = requests.get('https://catfact.ninja/fact', timeout=1000)
+#         if response.status_code == 200:
+#             data = response.json()
+#             print(data)
+#         else:
+#             print(f"Request failed with status: {response.status_code}")
+#         return {
+#             'statusCode': 200,
+#             'body': 'API request test succeeded'
+#         }
+#     except Exception as e:
+#         print(f"An error occurred: {str(e)}")
+#         return {
+#             'statusCode': 500,
+#             'body': 'API request test failed'
+#         }
+
+import subprocess
 
 
 def handler(event, context):
     try:
-        response = requests.get('https://catfact.ninja/fact', timeout=1000)
-        if response.status_code == 200:
-            data = response.json()
-            print(data)
-        else:
-            print(f"Request failed with status: {response.status_code}")
+        # Test connectivity using ping
+        ping_output = subprocess.check_output(["ping", "-c", "4", "catfact.ninja"])
+        print(ping_output.decode("utf-8"))
+
+        # Test connectivity using telnet
+        telnet_output = subprocess.check_output(["telnet", "catfact.ninja", "443"])
+        print(telnet_output.decode("utf-8"))
+
         return {
             'statusCode': 200,
-            'body': 'API request test succeeded'
+            'body': 'Connectivity test succeeded'
         }
-    except Exception as e:
+    except subprocess.CalledProcessError as e:
         print(f"An error occurred: {str(e)}")
         return {
             'statusCode': 500,
-            'body': 'API request test failed'
+            'body': 'Connectivity test failed'
         }
