@@ -32,74 +32,26 @@
 #             'body': json.dumps({'error': 'An error occurred while processing your request.'})
 #         }
 
-# import asyncio
-# import aiohttp
-
-
-# async def test_aiohttp():
-#     async with aiohttp.ClientSession() as session:
-#         async with session.get('https://api.publicapis.org/entries') as response:
-#             if response.status == 200:
-#                 data = await response.json()
-#                 print(data)
-#             else:
-#                 print(f"Request failed with status: {response.status}")
-
-
-# def handler(event, context):
-#     try:
-#         asyncio.run(test_aiohttp())
-#         return {
-#             'statusCode': 200,
-#             'body': 'aiohttp test succeeded'
-#         }
-#     except Exception as e:
-#         print(f"An error occurred: {str(e)}")
-#         return {
-#             'statusCode': 500,
-#             'body': 'aiohttp test failed'
-#         }
-
-# import requests
-
-
-# def handler(event, context):
-#     try:
-#         response = requests.get('https://catfact.ninja/fact', timeout=1000)
-#         if response.status_code == 200:
-#             data = response.json()
-#             print(data)
-#         else:
-#             print(f"Request failed with status: {response.status_code}")
-#         return {
-#             'statusCode': 200,
-#             'body': 'API request test succeeded'
-#         }
-#     except Exception as e:
-#         print(f"An error occurred: {str(e)}")
-#         return {
-#             'statusCode': 500,
-#             'body': 'API request test failed'
-#         }
-
-import socket
+import http.client
 
 
 def handler(event, context):
     try:
-        # Test connectivity using socket
+        # Test connectivity using http.client
         host = 'catfact.ninja'
         port = 443
         timeout = 1000
 
         try:
-            sock = socket.create_connection((host, port), timeout=timeout)
-            print(f"Connected to {host}:{port}")
-            sock.close()
-        except socket.timeout:
-            print(f"Connection to {host}:{port} timed out")
-        except socket.error as e:
-            print(f"Connection to {host}:{port} failed: {str(e)}")
+            conn = http.client.HTTPSConnection(host, port, timeout=timeout)
+            conn.request("GET", "/fact")
+            response = conn.getresponse()
+            print(f"Status: {response.status} {response.reason}")
+            conn.close()
+        except http.client.HTTPException as e:
+            print(f"HTTP error occurred: {str(e)}")
+        except Exception as e:
+            print(f"An error occurred: {str(e)}")
 
         return {
             'statusCode': 200,
