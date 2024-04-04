@@ -82,24 +82,30 @@
 #             'body': 'API request test failed'
 #         }
 
-import subprocess
+import socket
 
 
 def handler(event, context):
     try:
-        # Test connectivity using ping
-        ping_output = subprocess.check_output(["ping", "-c", "4", "catfact.ninja"])
-        print(ping_output.decode("utf-8"))
+        # Test connectivity using socket
+        host = 'catfact.ninja'
+        port = 443
+        timeout = 5
 
-        # Test connectivity using telnet
-        telnet_output = subprocess.check_output(["telnet", "catfact.ninja", "443"])
-        print(telnet_output.decode("utf-8"))
+        try:
+            sock = socket.create_connection((host, port), timeout=timeout)
+            print(f"Connected to {host}:{port}")
+            sock.close()
+        except socket.timeout:
+            print(f"Connection to {host}:{port} timed out")
+        except socket.error as e:
+            print(f"Connection to {host}:{port} failed: {str(e)}")
 
         return {
             'statusCode': 200,
-            'body': 'Connectivity test succeeded'
+            'body': 'Connectivity test completed'
         }
-    except subprocess.CalledProcessError as e:
+    except Exception as e:
         print(f"An error occurred: {str(e)}")
         return {
             'statusCode': 500,
