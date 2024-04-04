@@ -12,6 +12,7 @@ aiohttp = "*"
 certifi = "*"
 gremlinpython = "*"
 requests = "*"
+pandas = "*"
 
 [requires]
 python_version = "3.11"
