@@ -7,11 +7,23 @@ verify_ssl = true
 pytest = "*"
 
 [packages]
-aiohttp = "*"
-certifi = "*"
-gremlinpython = "*"
 requests = "*"
 pandas = "*"
+aenum = "*"
+aiohttp = "*"
+aiosignal = "*"
+attr = "*"
+attrs = "*"
+certifi = "*"
+frozenlist = "*"
+gremlinpython = "*"
+idna = "*"
+isodate = "*"
+multidict = "*"
+nest-asyncio = "*"
+numpy = "*"
+six = "*"
+yarl = "*"
 
 [requires]
 python_version = "3.11"
