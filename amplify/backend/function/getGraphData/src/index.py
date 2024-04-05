@@ -10,7 +10,7 @@ from gremlin_python.process.anonymous_traversal import traversal
 def handler(event, context):
     try:
         gremlin_url = "wss://db-bio-annotations.cluster-cu9wyuyqqen8.ap-southeast-1.neptune.amazonaws.com:8182/gremlin"
-        # print("GREMLIN URL", gremlin_url)
+        print("GREMLIN URL", gremlin_url)
 
         ssl_context = ssl.create_default_context(cafile=certifi.where())
         # print(ssl_context)
