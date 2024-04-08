@@ -1,7 +1,7 @@
 import json
 import ssl
 import certifi
-import aiohttp
+# import aiohttp
 # import pandas as pd
 from gremlin_python.driver.driver_remote_connection import DriverRemoteConnection
 from gremlin_python.process.anonymous_traversal import traversal
@@ -14,7 +14,9 @@ def handler(event, context):
 
         ssl_context = ssl.create_default_context(cafile=certifi.where())
         # print(ssl_context)
-        gremlin_client = DriverRemoteConnection(gremlin_url, "g", ssl_context=ssl_context)
+        gremlin_client = DriverRemoteConnection(
+            gremlin_url, "g", ssl_context=ssl_context
+        )
         # print(gremlin_client)
         g = traversal().withRemote(gremlin_client)
         node_count = g.V().count().next()
@@ -29,10 +31,3 @@ def handler(event, context):
             'statusCode': 500,
             'body': json.dumps({'error': 'An error occurred while processing your request.'})
         }
-
-    # return {
-    #     "statusCode": 200,
-    #     "body": json.dumps({
-    #         "message": "hello world",
-    #     }),
-    # }
