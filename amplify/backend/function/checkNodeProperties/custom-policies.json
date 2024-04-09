@@ -1,11 +1,6 @@
 [
   {
-      "Action": [
-          "lambda:InvokeFunction"
-      ],
-      "Resource": [
-          "arn:aws:lambda:ap-southeast-1:256056681342:function:getGraphData-dev"
-      ],
-      "Effect": "Allow"
+    "Action": [],
+    "Resource": []
   }
 ]
