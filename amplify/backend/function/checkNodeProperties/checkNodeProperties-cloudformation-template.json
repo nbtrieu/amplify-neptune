@@ -142,8 +142,12 @@
                             "Effect": "Allow",
                             "Action": ["logs:CreateLogGroup",
                             "logs:CreateLogStream",
-                            "logs:PutLogEvents"],
-                            "Resource": { "Fn::Sub": [ "arn:aws:logs:${region}:${account}:log-group:/aws/lambda/${lambda}:log-stream:*", { "region": {"Ref": "AWS::Region"}, "account": {"Ref": "AWS::AccountId"}, "lambda": {"Ref": "LambdaFunction"}} ]}
+                            "logs:PutLogEvents",
+                            "lambda:InvokeFunction"],
+                            "Resource": [
+                                { "Fn::Sub": [ "arn:aws:logs:${region}:${account}:log-group:/aws/lambda/${lambda}:log-stream:*", { "region": {"Ref": "AWS::Region"}, "account": {"Ref": "AWS::AccountId"}, "lambda": {"Ref": "LambdaFunction"}} ]},
+                                { "Fn::Sub": "arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:getGraphData-dev" }
+                            ]
                         }
                     ]
                 }
