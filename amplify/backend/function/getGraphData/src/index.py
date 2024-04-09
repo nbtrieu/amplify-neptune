@@ -20,11 +20,14 @@ def handler(event, context):
         # print(gremlin_client)
         g = traversal().withRemote(gremlin_client)
         node_count = g.V().count().next()
+        print(f"Successfully retrieved node count: {node_count}")
 
-        return {
-            'statusCode': 200,
-            'body': json.dumps({'message': 'Successfully retrieved node count', 'node_count': node_count})
-        }
+        # return {
+        #     'statusCode': 200,
+        #     'body': json.dumps({'message': 'Successfully retrieved node count', 'node_count': node_count})
+        # }
+        return g
+
     except Exception as e:
         print(f"An error occurred: {str(e)}")
         return {

@@ -28,6 +28,20 @@
     }
   },
   "function": {
+    "checkNodeProperties": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "persondbgremlin"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "getGraphData": {
       "build": true,
       "dependsOn": [],
