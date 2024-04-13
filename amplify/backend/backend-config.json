@@ -55,6 +55,22 @@
     }
   },
   "parameters": {
+    "AMPLIFY_function_checkNodeProperties_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "checkNodeProperties"
+        }
+      ]
+    },
+    "AMPLIFY_function_checkNodeProperties_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "checkNodeProperties"
+        }
+      ]
+    },
     "AMPLIFY_function_getGraphData_deploymentBucketName": {
       "usedBy": [
         {

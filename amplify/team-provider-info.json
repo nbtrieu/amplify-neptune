@@ -18,13 +18,16 @@
       "function": {
         "persondbgremlin": {
           "deploymentBucketName": "amplify-persondb-dev-18584-deployment",
-          "s3Key": "amplify-builds/persondbgremlin-LambdaLayerVersion1579cf3b-build.zip"
+          "s3Key": "amplify-builds/persondbgremlin-LambdaLayerVersion51723a4d-build.zip"
         },
         "getGraphData": {
           "deploymentBucketName": "amplify-persondb-dev-18584-deployment",
-          "s3Key": "amplify-builds/getGraphData-515355543270794c4e32-build.zip"
+          "s3Key": "amplify-builds/getGraphData-796d6666365a4a64524b-build.zip"
         },
-        "checkNodeProperties": {}
+        "checkNodeProperties": {
+          "deploymentBucketName": "amplify-persondb-dev-18584-deployment",
+          "s3Key": "amplify-builds/checkNodeProperties-4f50545871615a4e6842-build.zip"
+        }
       }
     }
   }

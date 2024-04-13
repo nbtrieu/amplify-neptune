@@ -11,6 +11,13 @@ export type AmplifyDependentResourcesAttributes = {
     }
   },
   "function": {
+    "checkNodeProperties": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
     "getGraphData": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
