@@ -1,15 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
+// import {
+//   KeywordSearchBox,
+//   NavBarHeader 
+// } from './ui-components';
 import {
-  KeywordSearchBox,
-  NavBarHeader 
-} from './ui-components';
+  NavBar
+} from './components'
 
 function App() {
   return (
     <div className="App">
-      <NavBarHeader />
-      <KeywordSearchBox />
+      <NavBar/>
     </div>
   );
 }
