@@ -6,7 +6,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     overflow: 'hidden', // prevent the inner table from causing the container to scroll
-    margin: '0px 20px',
+    margin: '0px 20px 20px 20px',
     border: '1px solid #E0E0E0', // Thin border outline
     borderRadius: '10px'
   },
@@ -36,6 +36,7 @@ const styles = {
   },
   tableCell: {
     padding: '10px 20px',
+    textAlign: 'left'
   },
 };
 
