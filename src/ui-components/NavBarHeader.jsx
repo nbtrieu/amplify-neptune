@@ -12,9 +12,10 @@ export default function NavBarHeader(props) {
   const { overrides, ...rest } = props;
   return (
     <View
-      width="1440px"
+      width="100%"
       height="164px"
-      display="block"
+      display="flex"
+      boxSizing="border-box"
       gap="unset"
       alignItems="unset"
       justifyContent="unset"

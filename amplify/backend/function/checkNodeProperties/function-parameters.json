@@ -1,0 +1,12 @@
+{
+  "permissions": {},
+  "lambdaLayers": [
+    {
+      "type": "ProjectLayer",
+      "resourceName": "persondbgremlin",
+      "env": "dev",
+      "version": 2,
+      "isLatestVersionSelected": false
+    }
+  ]
+}
