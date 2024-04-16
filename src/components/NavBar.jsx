@@ -34,7 +34,7 @@ const styles = {
     color: '#51565E', // default color for non-active items
   },
   activeNavItem: {
-    color: '#7FFF00', // active item color
+    color: '#0F9D58', // active item color
   },
   profileButton: {
     backgroundColor: '#A2DFC1',
