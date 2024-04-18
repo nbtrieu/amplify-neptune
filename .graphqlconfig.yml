@@ -1,0 +1,17 @@
+projects:
+  neptune:
+    schemaPath: amplify/backend/api/neptune/build/schema.graphql
+    includes:
+      - src/graphql/**/*.js
+    excludes:
+      - ./amplify/**
+    extensions:
+      amplify:
+        codeGenTarget: javascript
+        generatedFileName: ''
+        docsFilePath: src/graphql
+        region: ap-southeast-1
+        apiId: null
+extensions:
+  amplify:
+    version: 3
