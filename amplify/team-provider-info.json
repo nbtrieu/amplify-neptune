@@ -27,7 +27,8 @@
         "checkNodeProperties": {
           "deploymentBucketName": "amplify-persondb-dev-18584-deployment",
           "s3Key": "amplify-builds/checkNodeProperties-4f50545871615a4e6842-build.zip"
-        }
+        },
+        "getPeopleByKeyword": {}
       }
     }
   }
