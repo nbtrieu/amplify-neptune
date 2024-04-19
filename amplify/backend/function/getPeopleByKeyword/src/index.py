@@ -28,9 +28,11 @@ def handler(event, context):
             .toList()
         )
 
+        serializable_result = [dict(column) for column in result]
+
         return {
             'statusCode': 200,
-            'body': json.dumps(result)
+            'body': json.dumps(serializable_result)
         }
 
     except Exception as e:
