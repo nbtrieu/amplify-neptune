@@ -23,16 +23,14 @@ def handler(event, context):
             .bothE()
             .outV()
             .hasLabel("person")
-            .valueMap(True)
+            .valueMap()
             .dedup()
             .toList()
         )
 
-        serializable_result = [dict(column) for column in result]
-
         return {
             'statusCode': 200,
-            'body': json.dumps(serializable_result)
+            'body': json.dumps(result)
         }
 
     except Exception as e:
