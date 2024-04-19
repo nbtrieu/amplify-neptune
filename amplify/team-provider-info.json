@@ -18,17 +18,20 @@
       "function": {
         "persondbgremlin": {
           "deploymentBucketName": "amplify-persondb-dev-18584-deployment",
-          "s3Key": "amplify-builds/persondbgremlin-LambdaLayerVersion16d0a004-build.zip"
+          "s3Key": "amplify-builds/persondbgremlin-LambdaLayerVersion43fdff18-build.zip"
         },
         "getGraphData": {
           "deploymentBucketName": "amplify-persondb-dev-18584-deployment",
-          "s3Key": "amplify-builds/getGraphData-796d6666365a4a64524b-build.zip"
+          "s3Key": "amplify-builds/getGraphData-66666b4d6b3641695a31-build.zip"
         },
         "checkNodeProperties": {
           "deploymentBucketName": "amplify-persondb-dev-18584-deployment",
-          "s3Key": "amplify-builds/checkNodeProperties-4f50545871615a4e6842-build.zip"
+          "s3Key": "amplify-builds/checkNodeProperties-48776b546a33496d786b-build.zip"
         },
-        "getPeopleByKeyword": {}
+        "getPeopleByKeyword": {
+          "deploymentBucketName": "amplify-persondb-dev-18584-deployment",
+          "s3Key": "amplify-builds/getPeopleByKeyword-6976467a644349366a76-build.zip"
+        }
       }
     }
   }

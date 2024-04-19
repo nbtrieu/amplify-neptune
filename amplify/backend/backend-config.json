@@ -133,6 +133,22 @@
         }
       ]
     },
+    "AMPLIFY_function_getPeopleByKeyword_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getPeopleByKeyword"
+        }
+      ]
+    },
+    "AMPLIFY_function_getPeopleByKeyword_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getPeopleByKeyword"
+        }
+      ]
+    },
     "AMPLIFY_function_persondbgremlin_deploymentBucketName": {
       "usedBy": [
         {
