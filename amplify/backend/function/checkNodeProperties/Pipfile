@@ -17,7 +17,6 @@ isodate = "==0.6.1"
 multidict = "==6.0.5"
 nest-asyncio = "==1.6.0"
 six = "==1.16.0"
-src = {editable = true, ref = "6ee792248cd6f9d9f57a5411c53cb995ac0a2e0f", git = "git+https://github.com/nbtrieu/amplify-neptune.git", subdirectory = "amplify/backend/function/getGraphData/src"}
 yarl = "==1.9.4"
 requests = "*"
 pandas = "*"
