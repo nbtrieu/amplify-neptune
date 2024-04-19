@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "77b3ea5c958d211e4aa88ec1e039ee1218b720421a80beda3c3180f8538ffae6"
+            "sha256": "63b5bbd45d7e4006e6a15ace24d14d4b2aaf94b1aa3fc5d62d1f1b35656914f0"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -565,12 +565,6 @@
             "index": "pypi",
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2'",
             "version": "==1.16.0"
-        },
-        "src": {
-            "editable": true,
-            "git": "git+https://github.com/nbtrieu/amplify-neptune.git",
-            "ref": "6ee792248cd6f9d9f57a5411c53cb995ac0a2e0f",
-            "subdirectory": "amplify/backend/function/getGraphData/src"
         },
         "tzdata": {
             "hashes": [
