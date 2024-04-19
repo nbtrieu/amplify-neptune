@@ -30,7 +30,7 @@
         },
         "getPeopleByKeyword": {
           "deploymentBucketName": "amplify-persondb-dev-18584-deployment",
-          "s3Key": "amplify-builds/getPeopleByKeyword-6976467a644349366a76-build.zip"
+          "s3Key": "amplify-builds/getPeopleByKeyword-32665130336945396235-build.zip"
         }
       }
     }
