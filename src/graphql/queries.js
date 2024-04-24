@@ -1,5 +1,21 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
+export const searchByKeyword = /* GraphQL */ `
+  query SearchByKeyword($keyword: String!) {
+    searchByKeyword(keyword: $keyword) {
+      uid
+      name
+      email
+      phone
+      title
+      mailing_address
+      interest_areas
+      lead_source
+      event_name
+      __typename
+    }
+  }
+`;
 
 export const getKeyword = /* GraphQL */ `
   query GetKeyword($id: ID!) {
