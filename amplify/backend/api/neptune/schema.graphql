@@ -27,4 +27,7 @@ type Person @model @auth(rules: [{allow: public}]) {
   PeopleOrganizations: [Organization] @manyToMany(relationName: "OrganizationPerson")
   PeopleKeywords: [Keyword] @manyToMany(relationName: "KeywordPerson")
 }
- 
+
+type Query {
+  searchByKeyword(keyword: String!): [Person]
+}
