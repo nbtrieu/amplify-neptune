@@ -8,7 +8,7 @@ from gremlin_python.process.graph_traversal import __
 
 def handler(event, context):
     try:
-        keyword = event.get('keyword')
+        keyword = event['arguments']['keyword']
 
         gremlin_url = "wss://db-bio-annotations.cluster-cu9wyuyqqen8.ap-southeast-1.neptune.amazonaws.com:8182/gremlin"
         ssl_context = ssl.create_default_context(cafile=certifi.where())
@@ -17,7 +17,7 @@ def handler(event, context):
         )
         g = traversal().withRemote(gremlin_client)
 
-        result = (
+        query_result = (
             g.V()
             .has("keyword", "name", keyword)
             .bothE()
@@ -27,6 +27,10 @@ def handler(event, context):
             .dedup()
             .toList()
         )
+        result = []
+        for person in query_result:
+            formatted_person = {k: v[0] if v else None for k, v in person.items()}  # so that each field should have a single str value instead of list
+            result.append(formatted_person)
 
         return {
             'statusCode': 200,
