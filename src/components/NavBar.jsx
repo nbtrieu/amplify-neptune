@@ -65,7 +65,7 @@ const NavBar = () => {
       <div style={styles.logo}>PersonDB Portal</div>
       <div style={styles.navContainer}>
         <div style={styles.navItems}>
-          {['Keyword', 'Organization', 'Name'].map((item) => (
+          {['Keywords', 'Organizations', 'Names'].map((item) => (
             <div
               key={item}
               style={activeItem === item ? { ...styles.navItem, ...styles.activeNavItem } : styles.navItem}
