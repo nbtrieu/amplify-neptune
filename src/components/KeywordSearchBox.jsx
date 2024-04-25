@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { API, graphqlOperation } from 'aws-amplify';
+import { API, graphqlOperation } from 'aws-amplify/api';
 import keywordOptionsList from '../options/keywordOptions';
 import { searchByKeyword } from '../graphql/queries';
 
