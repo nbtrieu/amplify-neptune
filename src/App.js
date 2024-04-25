@@ -1,6 +1,6 @@
 import './App.css';
 import { Amplify } from 'aws-amplify';
-import awsconfig from './aws-exports';
+import config from './aws-exports.js';
 
 import {
   NavBar,
@@ -8,14 +8,14 @@ import {
   ResultsTable
 } from './components'
 
-Amplify.configure(awsconfig);
+Amplify.configure(config);
 
 function App() {
   return (
     <div className="App">
       <NavBar/>
       <KeywordSearchBox/>
-      <ResultsTable/>
+      {/* <ResultsTable/> */}
     </div>
   );
 }
