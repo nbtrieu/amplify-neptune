@@ -36,6 +36,7 @@ def handler(event, context):
             result.append(formatted_person)
 
         print(f"Formatted result: {result}")
+        print(type(result))
 
         return result
 
