@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { API, graphqlOperation } from 'aws-amplify/api';
+import { generateClient } from 'aws-amplify/api';
 import keywordOptionsList from '../options/keywordOptions';
 import { searchByKeyword } from '../graphql/queries';
 
@@ -59,7 +59,11 @@ const KeywordSearchBox = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const result = await API.graphql(graphqlOperation(searchByKeyword, { keyword }));
+      const client = generateClient()
+      const result = await client.graphql({
+        query: searchByKeyword,
+        variables: { keyword: keyword }
+      });
       console.log(result.data.searchByKeyword);
     } catch (error) {
       console.error('Error searching by keyword:', error);
