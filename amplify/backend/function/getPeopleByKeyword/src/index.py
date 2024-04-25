@@ -9,6 +9,7 @@ from gremlin_python.process.graph_traversal import __
 def handler(event, context):
     try:
         keyword = event['arguments']['keyword']
+        print(f"Keyword received: {keyword}")
 
         gremlin_url = "wss://db-bio-annotations.cluster-cu9wyuyqqen8.ap-southeast-1.neptune.amazonaws.com:8182/gremlin"
         ssl_context = ssl.create_default_context(cafile=certifi.where())
@@ -27,19 +28,17 @@ def handler(event, context):
             .dedup()
             .toList()
         )
+        print(f"Query result: {query_result}")
+
         result = []
         for person in query_result:
             formatted_person = {k: v[0] if v else None for k, v in person.items()}  # so that each field should have a single str value instead of list
             result.append(formatted_person)
 
-        return {
-            'statusCode': 200,
-            'body': json.dumps(result)
-        }
+        print(f"Formatted result: {result}")
+
+        return result
 
     except Exception as e:
-        print(f"An error occurred: {str(e)}")
-        return {
-            'statusCode': 500,
-            'body': json.dumps({'error': 'An error occurred while processing your request.'})
-        }
+        print(f"An error occurred: {str(e)}")  # Error logging
+        return {'error': 'An error occurred while processing your request.'}
