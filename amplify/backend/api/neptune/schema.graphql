@@ -1,3 +1,8 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
 type Keyword @model @auth(rules: [{allow: public}]) {
   id: ID!
   uid: String!
