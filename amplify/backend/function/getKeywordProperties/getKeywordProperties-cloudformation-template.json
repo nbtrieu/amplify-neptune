@@ -118,13 +118,11 @@
                         }
                     ]
                 },
-"ManagedPolicyArns": [
-"arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole",
-"arn:aws:iam::aws:policy/NeptuneReadOnlyAccess"
-"ManagedPolicyArns": [
-"arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole",
-"arn:aws:iam::aws:policy/NeptuneReadOnlyAccess"
-],],                "AssumeRolePolicyDocument": {
+                "ManagedPolicyArns": [
+                    "arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole",
+                    "arn:aws:iam::aws:policy/NeptuneReadOnlyAccess"
+                ],
+               "AssumeRolePolicyDocument": {
                     "Version": "2012-10-17",
                     "Statement": [
                         {
@@ -141,8 +139,8 @@
                     ]
                 }
             }
-        }
-        ,"lambdaexecutionpolicy": {
+        },
+        "lambdaexecutionpolicy": {
             "DependsOn": ["LambdaExecutionRole"],
             "Type": "AWS::IAM::Policy",
             "Properties": {
@@ -161,8 +159,8 @@
                     ]
                 }
             }
-        }
-        ,"AmplifyResourcesPolicy": {
+        },
+        "AmplifyResourcesPolicy": {
             "DependsOn": ["LambdaExecutionRole"],
             "Type": "AWS::IAM::Policy",
             "Properties": {
