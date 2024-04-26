@@ -17,6 +17,7 @@ def handler(event, context):
         node_count = g.V().count().next()
 
         print(f"Successfully retrieved node count: {node_count}")
+        print(type(node_count))
 
         return node_count
 
