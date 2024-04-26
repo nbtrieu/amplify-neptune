@@ -58,16 +58,16 @@ const KeywordSearchBox = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // try {
-    //   const client = generateClient()
-    //   const result = await client.graphql({
-    //     query: searchByKeyword,
-    //     variables: { keyword: keyword }
-    //   });
-    //   console.log(result.data.searchByKeyword);
-    // } catch (error) {
-    //   console.error('Error searching by keyword:', error);
-    // }
+    try {
+      const client = generateClient()
+      const result = await client.graphql({
+        query: searchByKeyword,
+        variables: { keyword: keyword }
+      });
+      console.log(result.data.searchByKeyword);
+    } catch (error) {
+      console.error('Error searching by keyword:', error);
+    }
 
     // try {
     //   const client = generateClient();
@@ -77,16 +77,16 @@ const KeywordSearchBox = () => {
     //   console.error('Error getting node count:', error)
     // }
 
-    try {
-      const client = generateClient();
-      const result = await client.graphql({
-        query: getKeywordUid,
-        variables: { keyword: keyword }
-      });
-      console.log(result.data.getKeywordUid);
-    } catch (error) {
-      console.error("Error getting keyword's UID value:", error);
-    }
+    // try {
+    //   const client = generateClient();
+    //   const result = await client.graphql({
+    //     query: getKeywordUid,
+    //     variables: { keyword: keyword }
+    //   });
+    //   console.log(result.data.getKeywordUid);
+    // } catch (error) {
+    //   console.error("Error getting keyword's UID value:", error);
+    // }
   };
 
   return (

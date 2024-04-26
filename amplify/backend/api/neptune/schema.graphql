@@ -32,8 +32,20 @@ type Person @model @auth(rules: [{allow: public}]) {
   PeopleKeywords: [Keyword] @manyToMany(relationName: "KeywordPerson")
 }
 
+type NeptunePerson {
+  uid: String!
+  name: String
+  email: String
+  phone: String
+  title: String
+  mailing_address: String
+  interest_areas: String
+  lead_source: String
+  event_name: String
+}
+
 type Query {
-  searchByKeyword(keyword: String!): [Person]
+  searchByKeyword(keyword: String!): [NeptunePerson]
   getNodeCount: Int
   getKeywordUid(keyword: String!): String
 }
