@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { generateClient } from 'aws-amplify/api';
 import keywordOptionsList from '../options/keywordOptions';
-import { searchByKeyword, getNodeCount } from '../graphql/queries';
+import { searchByKeyword, getNodeCount, getKeywordUid } from '../graphql/queries';
 
 const styles = {
   container: {
@@ -68,12 +68,24 @@ const KeywordSearchBox = () => {
     // } catch (error) {
     //   console.error('Error searching by keyword:', error);
     // }
+
+    // try {
+    //   const client = generateClient();
+    //   const result = await client.graphql({ query: getNodeCount });
+    //   console.log(result.data.getNodeCount);
+    // } catch (error) {
+    //   console.error('Error getting node count:', error)
+    // }
+
     try {
       const client = generateClient();
-      const result = await client.graphql({ query: getNodeCount });
-      console.log(result.data.getNodeCount);
+      const result = await client.graphql({
+        query: getKeywordUid,
+        variables: { keyword: keyword }
+      });
+      console.log(result.data.getKeywordUid);
     } catch (error) {
-      console.error('Error getting node count:', error)
+      console.error("Error getting keyword's UID value:", error);
     }
   };
 

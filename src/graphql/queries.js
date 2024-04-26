@@ -1,5 +1,11 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
+export const getKeywordUid = /* GraphQL */ `
+  query GetKeywordUid($keyword: String!) {
+    getKeywordUid(keyword: $keyword)
+  }
+`
+
 export const getNodeCount = /* GraphQL */ `
   query GetNodeCount {
     getNodeCount

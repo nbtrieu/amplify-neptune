@@ -35,4 +35,5 @@ type Person @model @auth(rules: [{allow: public}]) {
 type Query {
   searchByKeyword(keyword: String!): [Person]
   getNodeCount: Int
+  getKeywordUid(keyword: String!): String
 }
