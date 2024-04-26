@@ -1,5 +1,11 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
+export const getNodeCount = /* GraphQL */ `
+  query GetNodeCount {
+    getNodeCount
+  }
+`
+
 export const searchByKeyword = /* GraphQL */ `
   query SearchByKeyword($keyword: String!) {
     searchByKeyword(keyword: $keyword) {

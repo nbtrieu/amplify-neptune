@@ -8,7 +8,6 @@ from gremlin_python.process.anonymous_traversal import traversal
 def handler(event, context):
     try:
         gremlin_url = "wss://db-bio-annotations.cluster-cu9wyuyqqen8.ap-southeast-1.neptune.amazonaws.com:8182/gremlin"
-        print("GREMLIN URL", gremlin_url)
 
         ssl_context = ssl.create_default_context(cafile=certifi.where())
         gremlin_client = DriverRemoteConnection(
@@ -17,14 +16,10 @@ def handler(event, context):
         g = traversal().withRemote(gremlin_client)
         node_count = g.V().count().next()
 
-        return {
-            'statusCode': 200,
-            'body': json.dumps({'message': 'Successfully retrieved node count', 'node_count': node_count})
-        }
+        print(f"Successfully retrieved node count: {node_count}")
+
+        return node_count
 
     except Exception as e:
-        print(f"An error occurred: {str(e)}")
-        return {
-            'statusCode': 500,
-            'body': json.dumps({'error': 'An error occurred while processing your request.'})
-        }
+        print(f"An error occurred: {str(e)}")  # Error logging
+        return {'error': 'An error occurred while processing your request.'}

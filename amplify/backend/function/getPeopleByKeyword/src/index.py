@@ -35,7 +35,7 @@ def handler(event, context):
             formatted_person = {k: v[0] if v else None for k, v in person.items()}  # so that each field should have a single str value instead of list
             result.append(formatted_person)
 
-        print(f"Formatted result: {result}")
+        print(f"Formatted result: {result}")  # output: <class 'list'>
         print(type(result))
 
         return result
