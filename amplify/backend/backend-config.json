@@ -71,6 +71,22 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
+    "getKeywordProperties": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ],
+          "category": "api",
+          "resourceName": "neptune"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "getPeopleByKeyword": {
       "build": true,
       "dependsOn": [

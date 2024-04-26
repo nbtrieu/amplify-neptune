@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "api": {
+      "neptune": [
+        "Query"
+      ]
+    },
+    "storage": {
+      "Keyword:@model(appsync)": [
+        "read"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}
