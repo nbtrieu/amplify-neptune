@@ -8,7 +8,7 @@ from gremlin_python.process.graph_traversal import __
 
 def handler(event, context):
     try:
-        keyword = event['arguments']['keyword']
+        keyword = event.get('keyword')
         print(f"Keyword received: {keyword}")
 
         gremlin_url = "wss://db-bio-annotations.cluster-cu9wyuyqqen8.ap-southeast-1.neptune.amazonaws.com:8182/gremlin"
