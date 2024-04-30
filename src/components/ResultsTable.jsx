@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { SearchContext } from '../context/SearchContext';
 import CsvButton from './CsvButton';
+import { unparse } from 'papaparse';
 
 const styles = {
   container: {
@@ -44,12 +45,24 @@ const ResultsTable = () => {
   const { results } = useContext(SearchContext);
   console.log('Rendering ResultsTable, results:', results);
 
+  const downloadCsv = () => {
+    const csv = unparse(results);
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', 'search-results.csv');
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div style={styles.container}>
       <div style={styles.resultsInfo}>
         <div>{`${results.length} results found.`}</div>
         <div style={styles.csvButtonContainer}>
-          <CsvButton onClick={() => console.log('Downloading CSV')} />
+          <CsvButton onClick={downloadCsv} />
         </div>
       </div>
       <div style={styles.table}>
