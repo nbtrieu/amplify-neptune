@@ -68,10 +68,10 @@ const KeywordSearchBox = () => {
         variables: { keyword: keyword }
       });
       setResults(result.data.searchByKeyword);
-      setIsDataLoaded(false); // Reset loading state
+      setIsDataLoaded(true);
       console.log(result.data.searchByKeyword);
     } catch (error) {
-      setIsDataLoaded(false);
+      setIsDataLoaded(false); // Reset loading state
       console.error('Error searching by keyword:', error);
     }
   };

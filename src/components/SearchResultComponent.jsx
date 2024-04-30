@@ -5,11 +5,12 @@ import ResultsTable from './ResultsTable';
 
 const SearchResultComponent = () => {
   const { isDataLoaded } = useContext(SearchContext);
+//   console.log('isDataLoaded:', isDataLoaded);
 
   return (
     <>
       <KeywordSearchBox />
-      {isDataLoaded && <ResultsTable />}
+      {isDataLoaded ? <ResultsTable /> : <div></div>}
     </>
   );
 };

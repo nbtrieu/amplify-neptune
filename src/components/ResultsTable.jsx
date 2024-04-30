@@ -42,6 +42,7 @@ const styles = {
 
 const ResultsTable = () => {
   const { results } = useContext(SearchContext);
+  console.log('Rendering ResultsTable, results:', results);
 
   return (
     <div style={styles.container}>
