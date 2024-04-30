@@ -1,5 +1,6 @@
-import React from 'react';
-import CsvButton from './CsvButton'; // Adjust the path as necessary
+import React, { useContext } from 'react';
+import { SearchContext } from '../context/SearchContext';
+import CsvButton from './CsvButton';
 
 const styles = {
   container: {
@@ -23,7 +24,6 @@ const styles = {
     overflow: 'auto', // enables scrolling
   },
   csvButtonContainer: {
-    // No need for absolute positioning, it will be in the flex container
   },
   tableHeader: {
     background: '#6FC2A9',
@@ -40,26 +40,13 @@ const styles = {
   },
 };
 
-const singleDataEntry = {
-  name: 'Nadia Greenidge',
-  title: 'Sr. Manager Quality Assurance and Regulatory Affair',
-  organization: 'Arete Biosciences',
-  email: 'ngreenidge26@gmail.com',
-  phone: '19089226159',
-  mailing_address: 'N/A',
-  interest_areas: 'regulatory',
-  lead_source: '2021 AACC',
-  event_name: 'N/A',
-};
-
-// Create an array with 12 duplicates of the single data entry
-const data = Array(12).fill(singleDataEntry);
-
 const ResultsTable = () => {
+  const { results } = useContext(SearchContext);
+
   return (
     <div style={styles.container}>
       <div style={styles.resultsInfo}>
-        <div>{`${data.length} results found.`}</div>
+        <div>{`${results.length} results found.`}</div>
         <div style={styles.csvButtonContainer}>
           <CsvButton onClick={() => console.log('Downloading CSV')} />
         </div>
@@ -80,7 +67,7 @@ const ResultsTable = () => {
             </tr>
           </thead>
           <tbody>
-            {data.map((item, index) => (
+            {results.map((item, index) => (
               <tr key={index} style={styles.tableRow}>
                 <td style={styles.tableCell}>{item.name}</td>
                 <td style={styles.tableCell}>{item.email}</td>

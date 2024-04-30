@@ -8,14 +8,18 @@ import {
   ResultsTable
 } from './components'
 
+import { SearchProvider } from './context/SearchContext.js';
+
 Amplify.configure(config);
 
 function App() {
   return (
     <div className="App">
       <NavBar/>
-      <KeywordSearchBox/>
-      {/* <ResultsTable/> */}
+      <SearchProvider>
+        <KeywordSearchBox/>
+        <ResultsTable/>
+      </SearchProvider>
     </div>
   );
 }

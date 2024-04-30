@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { SearchContext } from '../context/SearchContext';
 import { generateClient } from 'aws-amplify/api';
 import keywordOptionsList from '../options/keywordOptions';
-import { searchByKeyword, getNodeCount, getKeywordUid } from '../graphql/queries';
+import { searchByKeyword } from '../graphql/queries';
 
 const styles = {
   container: {
@@ -50,6 +51,8 @@ const styles = {
 };
 
 const KeywordSearchBox = () => {
+  const { setResults } = useContext(SearchContext);
+
   const [keyword, setKeyword] = useState(keywordOptionsList[0]);
 
   const handleKeywordChange = (event) => {
@@ -64,29 +67,11 @@ const KeywordSearchBox = () => {
         query: searchByKeyword,
         variables: { keyword: keyword }
       });
+      setResults(result.data.searchByKeyword);
       console.log(result.data.searchByKeyword);
     } catch (error) {
       console.error('Error searching by keyword:', error);
     }
-
-    // try {
-    //   const client = generateClient();
-    //   const result = await client.graphql({ query: getNodeCount });
-    //   console.log(result.data.getNodeCount);
-    // } catch (error) {
-    //   console.error('Error getting node count:', error)
-    // }
-
-    // try {
-    //   const client = generateClient();
-    //   const result = await client.graphql({
-    //     query: getKeywordUid,
-    //     variables: { keyword: keyword }
-    //   });
-    //   console.log(result.data.getKeywordUid);
-    // } catch (error) {
-    //   console.error("Error getting keyword's UID value:", error);
-    // }
   };
 
   return (
