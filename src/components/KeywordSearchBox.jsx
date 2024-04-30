@@ -51,8 +51,7 @@ const styles = {
 };
 
 const KeywordSearchBox = () => {
-  const { setResults } = useContext(SearchContext);
-
+  const { setResults, setIsDataLoaded } = useContext(SearchContext);
   const [keyword, setKeyword] = useState(keywordOptionsList[0]);
 
   const handleKeywordChange = (event) => {
@@ -60,6 +59,7 @@ const KeywordSearchBox = () => {
   };
 
   const handleSubmit = async (event) => {
+    setIsDataLoaded(false); // Reset loading state
     event.preventDefault();
     try {
       const client = generateClient()
@@ -68,8 +68,10 @@ const KeywordSearchBox = () => {
         variables: { keyword: keyword }
       });
       setResults(result.data.searchByKeyword);
+      setIsDataLoaded(false); // Reset loading state
       console.log(result.data.searchByKeyword);
     } catch (error) {
+      setIsDataLoaded(false);
       console.error('Error searching by keyword:', error);
     }
   };

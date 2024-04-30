@@ -4,21 +4,19 @@ import config from './aws-exports.js';
 
 import {
   NavBar,
-  KeywordSearchBox,
-  ResultsTable
+  SearchResultComponent
 } from './components'
 
 import { SearchProvider } from './context/SearchContext.js';
 
 Amplify.configure(config);
 
-function App() {
+function App() {  
   return (
     <div className="App">
       <NavBar/>
       <SearchProvider>
-        <KeywordSearchBox/>
-        <ResultsTable/>
+        <SearchResultComponent/>
       </SearchProvider>
     </div>
   );
