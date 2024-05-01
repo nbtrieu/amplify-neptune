@@ -74,3 +74,58 @@ table {
 .csv-button-container {
   /* Add any specific styles for the container of CsvButton if needed */
 }
+
+.navbar {
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1); */
+  justify-content: flex-start;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 24px;
+  color: #51565E;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex: 1;
+}
+
+.nav-items {
+  display: flex;
+  align-items: center;
+  font-weight: normal;
+  font-size: 16px;
+  color: #51565E;
+  margin-right: 20px;
+}
+
+.nav-item {
+  margin: 0 10px;
+  cursor: pointer;
+  color: #51565E;
+}
+
+.active-nav-item {
+  color: #0F9D58;
+}
+
+.profile-button {
+  background-color: #A2DFC1;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-weight: bold;
+  cursor: pointer;
+}
