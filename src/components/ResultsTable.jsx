@@ -3,102 +3,65 @@ import { SearchContext } from '../context/SearchContext';
 import CsvButton from './CsvButton';
 import { unparse } from 'papaparse';
 
-const styles = {
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    overflow: 'hidden', // prevent the inner table from causing the container to scroll
-    margin: '0px 20px 20px 20px',
-    border: '1px solid #E0E0E0', // Thin border outline
-    borderRadius: '10px'
-  },
-  resultsInfo: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: '10px 20px',
-    backgroundColor: '#F9F9F9', // Light background for the results info bar
-    borderBottom: '1px solid #E0E0E0', // Border between info bar and table
-  },
-  table: {
-    minWidth: '800px',
-    overflow: 'auto', // enables scrolling
-  },
-  csvButtonContainer: {
-  },
-  tableHeader: {
-    background: '#6FC2A9',
-    color: 'white',
-    fontWeight: 'bold',
-    padding: '10px 20px',
-  },
-  tableRow: {
-    borderBottom: '1px solid #E0E0E0',
-  },
-  tableCell: {
-    padding: '10px 20px',
-    textAlign: 'left'
-  },
-};
+import '../index.css';
 
 const ResultsTable = () => {
-  const { results } = useContext(SearchContext);
-  console.log('Rendering ResultsTable, results:', results);
+    const { results } = useContext(SearchContext);
 
-  const downloadCsv = () => {
-    const csv = unparse(results);
-    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.setAttribute('download', 'search-results.csv');
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
+    const downloadCsv = () => {
+        const csv = unparse(results);
+        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', 'search-results.csv');
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
 
-  return (
-    <div style={styles.container}>
-      <div style={styles.resultsInfo}>
-        <div>{`${results.length} results found.`}</div>
-        <div style={styles.csvButtonContainer}>
-          <CsvButton onClick={downloadCsv} />
+    return (
+        <div className="results-container">
+            <div className="results-info">
+                <div>{`${results.length} results found.`}</div>
+                <div className="csv-button-container">
+                    <CsvButton onClick={downloadCsv} />
+                </div>
+            </div>
+            <div className="table-container">
+                <table>
+                    <thead className="table-header">
+                        <tr>
+                            <th className="table-cell">NAME</th>
+                            <th className="table-cell">EMAIL</th>
+                            <th className="table-cell">PHONE</th>
+                            <th className="table-cell">TITLE</th>
+                            <th className="table-cell">ORGANIZATION</th>
+                            <th className="table-cell">MAILING ADDRESS</th>
+                            <th className="table-cell">AREAS OF INTEREST</th>
+                            <th className="table-cell">LEAD SOURCE</th>
+                            <th className="table-cell">EVENT NAME</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {results.map((item, index) => (
+                            <tr key={index} className="table-row">
+                                <td className="table-cell">{item.name}</td>
+                                <td className="table-cell">{item.email}</td>
+                                <td className="table-cell">{item.phone}</td>
+                                <td className="table-cell">{item.title}</td>
+                                <td className="table-cell">{item.organization}</td>
+                                <td className="table-cell">{item.mailing_address}</td>
+                                <td className="table-cell">{item.interest_areas}</td>
+                                <td className="table-cell">{item.lead_source}</td>
+                                <td className="table-cell">{item.event_name}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
-      </div>
-      <div style={styles.table}>
-        <table>
-          <thead style={styles.tableHeader}>
-            <tr>
-              <th style={styles.tableCell}>NAME</th>
-              <th style={styles.tableCell}>EMAIL</th>
-              <th style={styles.tableCell}>PHONE</th>
-              <th style={styles.tableCell}>TITLE</th>
-              <th style={styles.tableCell}>ORGANIZATION</th>
-              <th style={styles.tableCell}>MAILING ADDRESS</th>
-              <th style={styles.tableCell}>AREAS OF INTEREST</th>
-              <th style={styles.tableCell}>LEAD SOURCE</th>
-              <th style={styles.tableCell}>EVENT NAME</th>
-            </tr>
-          </thead>
-          <tbody>
-            {results.map((item, index) => (
-              <tr key={index} style={styles.tableRow}>
-                <td style={styles.tableCell}>{item.name}</td>
-                <td style={styles.tableCell}>{item.email}</td>
-                <td style={styles.tableCell}>{item.phone}</td>
-                <td style={styles.tableCell}>{item.title}</td>
-                <td style={styles.tableCell}>{item.organization}</td>
-                <td style={styles.tableCell}>{item.mailing_address}</td>
-                <td style={styles.tableCell}>{item.interest_areas}</td>
-                <td style={styles.tableCell}>{item.lead_source}</td>
-                <td style={styles.tableCell}>{item.event_name}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default ResultsTable;

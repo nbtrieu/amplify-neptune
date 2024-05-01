@@ -9,7 +9,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    padding: '80px 20px 50px 20px',
+    padding: '80px 20px 0px 20px',
     margin: 'auto',
     width: '50%'
   },

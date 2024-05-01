@@ -11,3 +11,66 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+}
+
+.results-container {
+  display: flex;
+  flex-direction: column;
+  /* overflow: hidden; */
+  margin: 20px 50px 30px 50px;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  background-color: #FFFFFF;
+}
+
+.results-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 50px 0px 50px;
+  color: #000000;
+  border-bottom: none;
+}
+
+.table-container {
+  max-height: 650px;
+  overflow: auto;
+  background-color: #FFFFFF;
+}
+
+.table-header th {
+  position: sticky;
+  top: 0;
+  background-color: #FFFFFF;
+  z-index: 1;
+  color: #828282;
+}
+
+.table-row {
+  margin-bottom: 2px;
+  position: relative;
+}
+
+.table-row::after {
+  content: '';
+  position: absolute;
+  left: 50px;
+  right: 50px;
+  bottom: 0;
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.table-cell {
+  padding: 10px 50px;
+  text-align: left;
+  color: #000000;
+}
+
+.csv-button-container {
+  /* Add any specific styles for the container of CsvButton if needed */
+}
