@@ -18,6 +18,7 @@ table {
   width: 100%;
 }
 
+/* ResultsTable */
 .results-container {
   display: flex;
   flex-direction: column;
@@ -75,6 +76,7 @@ table {
   /* Add any specific styles for the container of CsvButton if needed */
 }
 
+/* NavBar */
 .navbar {
   background-color: #FFFFFF;
   display: flex;
@@ -127,5 +129,55 @@ table {
   justify-content: center;
   color: #FFFFFF;
   font-weight: bold;
+  cursor: pointer;
+}
+
+/* KeywordSearchBox */
+.keyword-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 20px 0px 20px;
+  margin: auto;
+  width: 50%;
+}
+
+.keyword-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.keyword-description {
+  font-size: 18px;
+  color: #51565E;
+  margin-bottom: 20px;
+}
+
+.keyword-search-box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  justify-content: center;
+  width: 100%;
+}
+
+.keyword-select-input {
+  padding: 10px;
+  margin-right: 10px;
+  font-size: 16px;
+  border-color: #E0E0E0;
+  border-radius: 4px;
+  width: 43%;
+  box-sizing: border-box;
+}
+
+.keyword-submit-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #000;
+  color: #A2DFC1;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
 }
