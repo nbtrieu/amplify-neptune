@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { CircularProgress } from '@mui/material'; // Import MUI loading spinner
 import { SearchContext } from '../context/SearchContext';
 import { generateClient } from 'aws-amplify/api';
@@ -10,13 +10,18 @@ import '../index.css';
 
 const KeywordSearchBox = () => {
   const { setResults, setIsDataLoaded } = useContext(SearchContext);
-  const [keyword, setKeyword] = useState(keywordOptionsList[0]);
+  const [keyword, setKeyword] = useState('');
   const [isLoading, setIsLoading] = useState(false); // State to track loading
 
   const handleKeywordChange = (newValue) => {
     setKeyword(newValue);
-    handleSubmit();
   };
+
+  useEffect(() => {
+    if (keyword) {
+      handleSubmit(); // This gets called whenever `keyword` changes and is not empty
+    }
+  }, [keyword]); // Re-run the effect when `keyword` changes
 
   const handleSubmit = async () => {
     setIsLoading(true); // Set loading to true
