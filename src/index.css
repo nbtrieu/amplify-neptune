@@ -89,6 +89,20 @@ table {
   /* Add any specific styles for the container of CsvButton if needed */
 }
 
+.button {
+  background-color: #6FC2A9;
+  border: none;
+  border-radius: 20%;
+  padding: 5px;
+  cursor: pointer;
+  outline: none;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); */
+}
+
+.button:hover {
+  background-color: #5eb89a;
+}
+
 /* .areas-of-interest {
   width: 1000px !important;
 } */
@@ -160,8 +174,8 @@ table {
   cursor: pointer;
 }
 
-/* KeywordSearchBox */
-.keyword-container {
+/* SearchBox */
+.searchbox-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -170,27 +184,28 @@ table {
   width: 50%;
 }
 
-.keyword-title {
+.searchbox-title {
   font-size: 32px;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
-.keyword-description {
+.searchbox-description {
   font-size: 18px;
   color: #51565E;
   margin-bottom: 20px;
 }
 
-.keyword-search-box {
+.search-box {
   display: flex;
   align-items: center;
+  gap: 10px;
   margin-bottom: 20px;
   justify-content: center;
   width: 100%;
 }
 
-.keyword-select-input {
+.searchbox-select-input {
   padding: 10px;
   margin-right: 10px;
   font-size: 16px;
@@ -200,12 +215,13 @@ table {
   box-sizing: border-box;
 }
 
-.keyword-submit-button {
-  padding: 10px 20px;
+.search-button {
+  padding: 5px;
   font-size: 16px;
-  background-color: #000;
+  background-color: #7dafff;
   color: #A2DFC1;
   border: none;
+  /* border: solid 1px #4285F4; */
   border-radius: 4px;
   cursor: pointer;
 }
