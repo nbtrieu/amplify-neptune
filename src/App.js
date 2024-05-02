@@ -14,7 +14,7 @@ function App() {
     <Router>
       <NavBar />
       <Routes>
-        <Route path='/keywords' element={<KeywordSearchPage />} />
+        <Route path='/' element={<KeywordSearchPage />} />
       </Routes>
     </Router>
   );
