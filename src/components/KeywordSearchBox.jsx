@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { CircularProgress } from '@mui/material'; // Import MUI loading spinner
 import { SearchContext } from '../context/SearchContext';
 import { generateClient } from 'aws-amplify/api';
 import keywordOptionsList from '../options/keywordOptions';
@@ -10,6 +11,7 @@ import '../index.css';
 const KeywordSearchBox = () => {
   const { setResults, setIsDataLoaded } = useContext(SearchContext);
   const [keyword, setKeyword] = useState(keywordOptionsList[0]);
+  const [isLoading, setIsLoading] = useState(false); // State to track loading
 
   const handleKeywordChange = (newValue) => {
     setKeyword(newValue);
@@ -17,6 +19,7 @@ const KeywordSearchBox = () => {
   };
 
   const handleSubmit = async () => {
+    setIsLoading(true); // Set loading to true
     setIsDataLoaded(false);
     try {
       const client = generateClient();
@@ -27,8 +30,9 @@ const KeywordSearchBox = () => {
       setResults(result.data.searchByKeyword);
       setIsDataLoaded(true);
     } catch (error) {
-      setIsDataLoaded(false);
       console.error('Error searching by keyword:', error);
+    } finally {
+      setIsLoading(false); // Set loading to false when done
     }
   };
 
@@ -38,13 +42,15 @@ const KeywordSearchBox = () => {
       <div className="searchbox-description">
         Search for leads based on their area of interests
       </div>
-      <form className="search-box" onSubmit={handleSubmit}>
+      {isLoading ? (
+        <CircularProgress /> // Display the loading indicator when loading
+      ) : (
         <SearchableDropdown 
           options={keywordOptionsList} 
           value={keyword} 
           onChange={handleKeywordChange}
         />
-      </form>
+      )}
     </div>
   );
 };
