@@ -31,30 +31,30 @@ const ResultsTable = () => {
             <div className="table-container">
                 <table>
                     <thead className="table-header">
-                        <tr>
-                            <th className="table-cell">NAME</th>
-                            <th className="table-cell">EMAIL</th>
-                            <th className="table-cell">PHONE</th>
-                            <th className="table-cell">TITLE</th>
-                            <th className="table-cell">ORGANIZATION</th>
-                            <th className="table-cell">MAILING ADDRESS</th>
-                            <th className="table-cell">AREAS OF INTEREST</th>
-                            <th className="table-cell">LEAD SOURCE</th>
-                            <th className="table-cell">EVENT NAME</th>
+                        <tr className="table-header">
+                            <th className="table-cell table-cell-name">NAME</th>
+                            <th className="table-cell table-cell-email">EMAIL</th>
+                            <th className="table-cell table-cell-phone">PHONE</th>
+                            <th className="table-cell table-cell-title">TITLE</th>
+                            <th className="table-cell table-cell-organization">ORGANIZATION</th>
+                            <th className="table-cell table-cell-mailing-address">MAILING ADDRESS</th>
+                            <th className="table-cell table-cell-areas-of-interest">AREAS OF INTEREST</th>
+                            <th className="table-cell table-cell-lead-source">LEAD SOURCE</th>
+                            <th className="table-cell table-cell-event-name">EVENT NAME</th>
                         </tr>
                     </thead>
                     <tbody>
                         {results.map((item, index) => (
                             <tr key={index} className="table-row">
-                                <td className="table-cell">{item.name}</td>
-                                <td className="table-cell">{item.email}</td>
-                                <td className="table-cell">{item.phone}</td>
-                                <td className="table-cell">{item.title}</td>
-                                <td className="table-cell">{item.organization}</td>
-                                <td className="table-cell">{item.mailing_address}</td>
-                                <td className="table-cell">{item.interest_areas}</td>
-                                <td className="table-cell">{item.lead_source}</td>
-                                <td className="table-cell">{item.event_name}</td>
+                                <td className="table-cell table-cell-name">{item.name}</td>
+                                <td className="table-cell table-cell-email">{item.email}</td>
+                                <td className="table-cell table-cell-phone">{item.phone}</td>
+                                <td className="table-cell table-cell-title">{item.title}</td>
+                                <td className="table-cell table-cell-organization">{item.organization}</td>
+                                <td className="table-cell table-cell-mailing-address">{item.mailing_address}</td>
+                                <td className="table-cell table-cell-areas-of-interest">{item.interest_areas}</td>
+                                <td className="table-cell table-cell-lead-source">{item.lead_source}</td>
+                                <td className="table-cell table-cell-event-name">{item.event_name}</td>
                             </tr>
                         ))}
                     </tbody>

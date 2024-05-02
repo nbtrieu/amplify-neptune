@@ -1,24 +1,22 @@
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Amplify } from 'aws-amplify';
 import config from './aws-exports.js';
 
-import {
-  NavBar,
-  SearchResultComponent
-} from './components'
+import { NavBar } from './components';
+import KeywordSearchPage from './pages/KeywordSearchPage.js';
 
-import { SearchProvider } from './context/SearchContext.js';
 
 Amplify.configure(config);
 
 function App() {  
   return (
-    <div className="App">
-      <NavBar/>
-      <SearchProvider>
-        <SearchResultComponent/>
-      </SearchProvider>
-    </div>
+    <Router>
+      <NavBar />
+      <Routes>
+        <Route path='/keywords' element={<KeywordSearchPage />} />
+      </Routes>
+    </Router>
   );
 }
 

@@ -34,8 +34,11 @@ table {
   justify-content: space-between;
   align-items: center;
   padding: 30px 50px 0px 50px;
-  color: #000000;
+  color: #6b6a6a;
   border-bottom: none;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  background-color: #FFFFFF;
 }
 
 .table-container {
@@ -49,7 +52,9 @@ table {
   top: 0;
   background-color: #FFFFFF;
   z-index: 1;
-  color: #828282;
+  color: #6b6a6a;
+  border-bottom: 1px solid #E0E0E0;
+  background-color: #FFFFFF;
 }
 
 .table-row {
@@ -63,7 +68,15 @@ table {
   left: 50px;
   right: 50px;
   bottom: 0;
-  border-bottom: 1px solid #E0E0E0;
+  /* border-bottom: 1px solid #E0E0E0; */
+}
+
+.table-row:nth-child(odd) {
+  background-color: #f9f9f9; /* Light gray for odd rows */
+}
+
+.table-row:nth-child(even) {
+  background-color: #ffffff; /* White for even rows */
 }
 
 .table-cell {
@@ -76,12 +89,27 @@ table {
   /* Add any specific styles for the container of CsvButton if needed */
 }
 
+/* .areas-of-interest {
+  width: 1000px !important;
+} */
+
+.table-cell-name { min-width: 20%; }
+.table-cell-email { min-width: 20%; }
+.table-cell-phone { min-width: 10%; }
+.table-cell-title { min-width: 15%; }
+.table-cell-organization { min-width: 15%; }
+.table-cell-mailing-address { min-width: 15%; }
+.table-cell-areas-of-interest { min-width: 50%; }
+.table-cell-lead-source { min-width: 10%; }
+.table-cell-event-name { min-width: 10%; }
+
+
 /* NavBar */
 .navbar {
   background-color: #FFFFFF;
   display: flex;
   align-items: center;
-  padding: 10px 20px;
+  padding: 20px 50px;
   /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1); */
   justify-content: flex-start;
 }

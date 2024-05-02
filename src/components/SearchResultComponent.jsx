@@ -1,15 +1,14 @@
 import React, { useContext } from 'react';
 import { SearchContext } from '../context/SearchContext';
-import KeywordSearchBox from './KeywordSearchBox';
 import ResultsTable from './ResultsTable';
 
-const SearchResultComponent = () => {
+const SearchResultComponent = ({ SearchBoxComponent }) => {
   const { isDataLoaded } = useContext(SearchContext);
 //   console.log('isDataLoaded:', isDataLoaded);
 
   return (
     <>
-      <KeywordSearchBox />
+      <SearchBoxComponent />
       {isDataLoaded ? <ResultsTable /> : <div></div>}
     </>
   );
