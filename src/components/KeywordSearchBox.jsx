@@ -5,8 +5,6 @@ import keywordOptionsList from '../options/keywordOptions';
 import { searchByKeyword } from '../graphql/queries';
 import SearchableDropdown from './SearchableDropdown';
 
-import SearchIcon from '@mui/icons-material/Search';
-
 import '../index.css';
 
 const KeywordSearchBox = () => {
@@ -15,11 +13,11 @@ const KeywordSearchBox = () => {
 
   const handleKeywordChange = (newValue) => {
     setKeyword(newValue);
+    handleSubmit();
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async () => {
     setIsDataLoaded(false);
-    event.preventDefault();
     try {
       const client = generateClient();
       const result = await client.graphql({
@@ -46,9 +44,6 @@ const KeywordSearchBox = () => {
           value={keyword} 
           onChange={handleKeywordChange}
         />
-        <button type="submit" className="search-button">
-          <SearchIcon fontSize="large" style={{ color: 'white' }} />
-        </button>
       </form>
     </div>
   );
