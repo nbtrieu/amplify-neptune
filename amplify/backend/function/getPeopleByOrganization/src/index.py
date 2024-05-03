@@ -22,7 +22,7 @@ def handler(event, context):
             g.V()
             .has("organization", "name", organization)
             .bothE()
-            .outV()
+            .inV()
             .hasLabel("person")
             .valueMap()
             .dedup()
