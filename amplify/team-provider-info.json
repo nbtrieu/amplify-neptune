@@ -22,7 +22,7 @@
         },
         "getGraphData": {
           "deploymentBucketName": "amplify-persondb-dev-18584-deployment",
-          "s3Key": "amplify-builds/getGraphData-50704d442f42492f705a-build.zip"
+          "s3Key": "amplify-builds/getGraphData-66353250566566755577-build.zip"
         },
         "checkNodeProperties": {
           "deploymentBucketName": "amplify-persondb-dev-18584-deployment",
@@ -30,9 +30,10 @@
         },
         "getPeopleByKeyword": {
           "deploymentBucketName": "amplify-persondb-dev-18584-deployment",
-          "s3Key": "amplify-builds/getPeopleByKeyword-32665130336945396235-build.zip"
+          "s3Key": "amplify-builds/getPeopleByKeyword-314c632b763253643353-build.zip"
         },
-        "getKeywordProperties": {}
+        "getKeywordProperties": {},
+        "getPeopleByOrganization": {}
       }
     }
   }

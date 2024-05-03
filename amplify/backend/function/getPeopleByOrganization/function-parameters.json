@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "api": {
+      "neptune": [
+        "Query"
+      ]
+    },
+    "storage": {
+      "Organization:@model(appsync)": [
+        "read"
+      ],
+      "Person:@model(appsync)": [
+        "read"
+      ]
+    }
+  },
+  "lambdaLayers": [
+    {
+      "type": "ProjectLayer",
+      "resourceName": "persondbgremlin",
+      "env": "dev",
+      "version": 2,
+      "isLatestVersionSelected": false
+    }
+  ]
+}

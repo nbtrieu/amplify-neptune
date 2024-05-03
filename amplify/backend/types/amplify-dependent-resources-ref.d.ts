@@ -32,6 +32,12 @@ export type AmplifyDependentResourcesAttributes = {
       "Name": "string",
       "Region": "string"
     },
+    "getKeywordProperties": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "Name": "string",
+      "Region": "string"
+    },
     "getPeopleByKeyword": {
       "Arn": "string",
       "LambdaExecutionRole": "string",

@@ -5,12 +5,12 @@ import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
 
 function SearchableDropdown({ options, value, onChange }) {
-    // const handleKeyDown = (event) => {
-    //     if (event.key === 'Enter') {
-    //         event.preventDefault(); // Prevent the default action to avoid submitting the form traditionally
-    //         onChange(value); // Trigger the onChange function which should be linked to handling the submission
-    //     }
-    // };
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Prevent the default action to avoid submitting the form traditionally
+            onChange(value); // Trigger the onChange function which should be linked to handling the submission
+        }
+    };
 
     return (
         <Autocomplete
@@ -54,10 +54,10 @@ function SearchableDropdown({ options, value, onChange }) {
                     }}
                 />
             )}
-            // autoComplete
-            // clearOnEscape
-            // fullWidth
-            // onKeyDown={handleKeyDown}
+            autoComplete
+            clearOnEscape
+            fullWidth
+            onKeyDown={handleKeyDown}
         />
     );
 }
