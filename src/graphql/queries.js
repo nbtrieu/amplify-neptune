@@ -29,6 +29,23 @@ export const searchByKeyword = /* GraphQL */ `
   }
 `;
 
+export const searchByOrganization = /* GraphQL */ `
+  query SearchByOrganization($organization: String!) {
+    searchByOrganization(organization: $organization) {
+      uid
+      name
+      email
+      phone
+      title
+      mailing_address
+      interest_areas
+      lead_source
+      event_name
+      __typename
+    }
+  }
+`;
+
 export const getKeyword = /* GraphQL */ `
   query GetKeyword($id: ID!) {
     getKeyword(id: $id) {

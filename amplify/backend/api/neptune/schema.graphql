@@ -46,6 +46,7 @@ type NeptunePerson {
 
 type Query {
   searchByKeyword(keyword: String!): [NeptunePerson]
+  searchByOrganization(organization: String!): [NeptunePerson]
   getNodeCount: Int
   getKeywordUid(keyword: String!): String
 }
