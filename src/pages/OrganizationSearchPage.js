@@ -14,7 +14,7 @@ const OrganizationSearchPage = () => {
           variableKey: "organization",
           options: organizationOptionsList,
           title: "Search by organization",
-          description: "Search for an organization's members"
+          description: "Search for members of an organization"
         }}
       />
     </SearchProvider>
