@@ -42,7 +42,6 @@ function SearchableDropdown({ options, value, onChange }) {
             renderInput={(params) => (
                 <TextField 
                     {...params} 
-                    label="Choose an option" 
                     variant="standard"
                     InputProps={{
                         ...params.InputProps,
