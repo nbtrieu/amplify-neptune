@@ -7,6 +7,10 @@ import '../index.css';
 
 const ResultsTable = () => {
     const { results } = useContext(SearchContext);
+    
+    if (!results || results.length === 0) {
+        return <div>No results found.</div>;
+    }
 
     const downloadCsv = () => {
         const csv = unparse(results);
