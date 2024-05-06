@@ -16,10 +16,6 @@ const SearchBox = ({ query, variableKey, options, title, description }) => {
     setIsLoading(true);
     setIsDataLoaded(false);
     const variables = { [variableKey]: value }; // Assign variables to easily log it
-    console.log("Variables for GraphQL query:", variables); // Log the variables used in the query
-    console.log(typeof(variables));
-    console.log("Query for GraphQL:", query);
-    console.log(typeof(query));
 
     try {
       const client = generateClient();
@@ -27,9 +23,7 @@ const SearchBox = ({ query, variableKey, options, title, description }) => {
         query: query,
         variables: variables
       });
-      console.log("Full GraphQL result:", result); // Log the full result for inspection
       setResults(result.data[Object.keys(result.data)[0]]); // Dynamically access the first property
-      console.log("Data retrieved:", result.data[Object.keys(result.data)[0]]);
     } catch (error) {
       console.error(`Error searching:`, error);
     } finally {

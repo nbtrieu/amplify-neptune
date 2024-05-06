@@ -15,7 +15,7 @@ const NavBar = () => {
       <div className="logo">PersonDB Portal</div>
       <div className="nav-container">
         <div className="nav-items">
-          {['Keywords', 'Organizations', 'Names'].map((item) => (
+          {['Keyword', 'Organization', 'Name'].map((item) => (
             <div
               key={item}
               className={`nav-item ${activeItem === item ? 'active-nav-item' : ''}`}
