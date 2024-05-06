@@ -38,6 +38,7 @@ type NeptunePerson {
   email: String
   phone: String
   title: String
+  organization: String
   mailing_address: String
   interest_areas: String
   lead_source: String

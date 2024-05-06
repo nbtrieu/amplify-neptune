@@ -20,6 +20,7 @@ export const searchByKeyword = /* GraphQL */ `
       email
       phone
       title
+      organization
       mailing_address
       interest_areas
       lead_source
@@ -37,6 +38,7 @@ export const searchByOrganization = /* GraphQL */ `
       email
       phone
       title
+      organization
       mailing_address
       interest_areas
       lead_source
