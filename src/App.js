@@ -1,4 +1,4 @@
-import './App.css';
+// import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Amplify } from 'aws-amplify';
 import config from './aws-exports.js';

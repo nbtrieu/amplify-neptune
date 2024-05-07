@@ -43,7 +43,7 @@ table {
 
 .table-container {
   max-height: 650px;
-  overflow: auto;
+  overflow: scroll;
   background-color: #FFFFFF;
 }
 

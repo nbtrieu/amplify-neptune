@@ -33,7 +33,8 @@
           "s3Key": "amplify-builds/getPeopleByKeyword-314c632b763253643353-build.zip"
         },
         "getKeywordProperties": {},
-        "getPeopleByOrganization": {}
+        "getPeopleByOrganization": {},
+        "getPersonByName": {}
       }
     }
   }
