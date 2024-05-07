@@ -48,6 +48,24 @@ export const searchByOrganization = /* GraphQL */ `
   }
 `;
 
+export const searchByName = /* GraphQL */ `
+  query SearchByName($name: String!) {
+    searchByName(name: $name) {
+      uid
+      name
+      email
+      phone
+      title
+      organization
+      mailing_address
+      interest_areas
+      lead_source
+      event_name
+      __typename
+    }
+  }
+`;
+
 export const getKeyword = /* GraphQL */ `
   query GetKeyword($id: ID!) {
     getKeyword(id: $id) {
