@@ -9,7 +9,7 @@ const ResultsTable = () => {
     const { results } = useContext(SearchContext);
     
     if (!results || results.length === 0) {
-        return <div>No results found.</div>;
+        return <div className='no-results'>No results found.</div>;
     }
 
     const downloadCsv = () => {

@@ -12,6 +12,11 @@ code {
     monospace;
 }
 
+.no-results {
+  text-align: center;
+  margin: 50px;
+}
+
 table {
   border-collapse: separate;
   border-spacing: 0;
