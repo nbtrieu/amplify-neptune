@@ -159,6 +159,7 @@ table {
   margin: 0 10px;
   cursor: pointer;
   color: #51565E;
+  text-decoration: none;
 }
 
 .active-nav-item {

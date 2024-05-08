@@ -1,5 +1,5 @@
 import React from "react";
-import { SearchBox, SearchResultComponent } from '../components';
+import { SelectSearchBox, SearchResultComponent } from '../components';
 import { SearchProvider } from '../context/SearchContext.js';
 import { searchByKeyword } from "../graphql/queries.js";
 import keywordOptionsList from "../options/keywordOptions.js";
@@ -8,7 +8,7 @@ const KeywordSearchPage = () => {
   return (
     <SearchProvider>
       <SearchResultComponent
-        SearchBoxComponent={SearchBox}
+        SearchBoxComponent={SelectSearchBox}
         searchProps={{
           query: searchByKeyword,
           variableKey: "keyword",
