@@ -17,7 +17,7 @@ Amplify.configure(config);
 function App() {
   return (
     <Router>
-      <Authenticator>
+      <Authenticator className='mt-7'>
         {({ signOut, user }) => {
           // Redirect user to the login page if not signed in
           if (!user) return <Navigate to="/auth" replace />;
