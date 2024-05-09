@@ -1,7 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import Box from '@mui/material/Box';
+import Tooltip from '@mui/material/Tooltip';
+import IconButton from '@mui/material/IconButton';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Typography from '@mui/material/Typography';
 
-const NavBar = () => {
+// const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
+const NavBar = ({ signOut }) => {
+  const [anchorElUser, setAnchorElUser] = useState(null);
+
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+  const handleCloseUserMenu = (event) => {
+    setAnchorElUser(null)
+  }
+
   return (
     <div className="navbar">
       <div className="logo">PersonDB Portal</div>
@@ -26,7 +44,38 @@ const NavBar = () => {
             Name
           </NavLink>
         </div>
-        <button className="profile-button">TU</button>
+        <Box sx={{ flexGrow: 0 }}>
+          <Tooltip title="Open settings">
+            <IconButton onClick={handleOpenUserMenu} size="small">
+              <button className="profile-button">TU</button>
+            </IconButton>
+          </Tooltip>
+          <Menu
+            sx={{ mt: '45px' }}
+            id="menu-appbar"
+            anchorEl={anchorElUser}
+            anchorOrigin={{
+              vertical: 'top',
+              horizontal: 'right',
+            }}
+            keepMounted
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'right',
+            }}
+            open={Boolean(anchorElUser)}
+            onClose={handleCloseUserMenu}
+          >
+            {/* {settings.map((setting) => (
+              <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <Typography textAlign="center">{setting}</Typography>
+              </MenuItem>
+            ))} */}
+            <MenuItem onClick={signOut}>
+              <Typography textAlign="center">Log out</Typography>
+            </MenuItem>
+          </Menu>
+        </Box>
       </div>
     </div>
   );
