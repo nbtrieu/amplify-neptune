@@ -1,285 +1,461 @@
 {
-    "AWSTemplateFormatVersion": "2010-09-09",
-    "Description": "Lambda Function resource stack creation using Amplify CLI",
-    "Parameters": {
-        "CloudWatchRule": {
-            "Type": "String",
-            "Default" : "NONE",
-            "Description" : " Schedule Expression"
-        },
-        "deploymentBucketName": {
-            "Type": "String"
-        },
-        "env": {
-            "Type": "String"
-        },
-        "s3Key": {
-            "Type": "String"
-        }
-        ,
-    
-    
-    
-        "apineptuneGraphQLAPIIdOutput": {
-            "Type": "String",
-            "Default": "apineptuneGraphQLAPIIdOutput"
-            },
-        
-        "apineptuneGraphQLAPIEndpointOutput": {
-            "Type": "String",
-            "Default": "apineptuneGraphQLAPIEndpointOutput"
-            },
-        
-        "apineptuneGraphQLAPIKeyOutput": {
-            "Type": "String",
-            "Default": "apineptuneGraphQLAPIKeyOutput"
-            },
-        
-    
-        
-    
-        "functionpersondbgremlinArn": {
-            "Type": "String",
-            "Default": "functionpersondbgremlinArn"
-            }
-        
-    
-        
-    
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Lambda Function resource stack creation using Amplify CLI",
+  "Parameters": {
+    "CloudWatchRule": {
+      "Type": "String",
+      "Default": "NONE",
+      "Description": " Schedule Expression"
     },
-    "Conditions": {
-        "ShouldNotCreateEnvResources": {
-            "Fn::Equals": [
-                {
-                    "Ref": "env"
-                },
-                "NONE"
-            ]
-        }
+    "deploymentBucketName": {
+      "Type": "String"
     },
-    "Resources": {
-        "LambdaFunction": {
-          "Type": "AWS::Lambda::Function",
-          "Metadata": {
-            "aws:asset:path": "./src",
-            "aws:asset:property": "Code"
+    "env": {
+      "Type": "String"
+    },
+    "s3Key": {
+      "Type": "String"
+    },
+    "apineptuneGraphQLAPIIdOutput": {
+      "Type": "String",
+      "Default": "apineptuneGraphQLAPIIdOutput"
+    },
+    "apineptuneGraphQLAPIEndpointOutput": {
+      "Type": "String",
+      "Default": "apineptuneGraphQLAPIEndpointOutput"
+    },
+    "apineptuneGraphQLAPIKeyOutput": {
+      "Type": "String",
+      "Default": "apineptuneGraphQLAPIKeyOutput"
+    },
+    "functionpersondbgremlinArn": {
+      "Type": "String",
+      "Default": "functionpersondbgremlinArn"
+    }
+  },
+  "Conditions": {
+    "ShouldNotCreateEnvResources": {
+      "Fn::Equals": [
+        {
+          "Ref": "env"
+        },
+        "NONE"
+      ]
+    }
+  },
+  "Resources": {
+    "LambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Metadata": {
+        "aws:asset:path": "./src",
+        "aws:asset:property": "Code"
+      },
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "deploymentBucketName"
           },
-          "Properties": {
-            "Code": {
-                "S3Bucket": {
-                    "Ref": "deploymentBucketName"
-                },
-                "S3Key": {
-                    "Ref": "s3Key"
-                }
-            },
-            "Handler": "index.handler",
-            "FunctionName": {
-                "Fn::If": [
-                    "ShouldNotCreateEnvResources",
-                    "getPeopleByOrganization",
-                    {
-
-                        "Fn::Join": [
-                            "",
-                            [
-                                "getPeopleByOrganization",
-                                "-",
-                                {
-                                    "Ref": "env"
-                                }
-                            ]
-                        ]
-                    }
-                ]
-            },
-            "MemorySize": 1024,
-            "VpcConfig": {
-            "SecurityGroupIds": [
-                "sg-06c72ac28c5b252f0",
-                "sg-0a9703c553757bd0d"
-            ],
-            "SubnetIds": [
-                "subnet-0f44db6eb5b384a80",
-                "subnet-00d0d6d2045002649"
-            ]
-            },
-            "Environment": {
-                "Variables" : {
-                    "ENV": {
-                        "Ref":"env"
-                    },
-                    "NEPTUNE_ENDPOINT": "db-bio-annotations-instance-1.cu9wyuyqqen8.ap-southeast-1.neptune.amazonaws.com",
-                    "NEPTUNE_PORT": "8182",
-                    "REGION":{"Ref":"AWS::Region"},
-                    "API_NEPTUNE_GRAPHQLAPIIDOUTPUT": {
-                        "Ref":"apineptuneGraphQLAPIIdOutput"
-                    },
-                    "API_NEPTUNE_GRAPHQLAPIENDPOINTOUTPUT": {
-                        "Ref":"apineptuneGraphQLAPIEndpointOutput"
-                    },
-                    "API_NEPTUNE_GRAPHQLAPIKEYOUTPUT": {
-                        "Ref":"apineptuneGraphQLAPIKeyOutput"
-                    },
-                    "API_NEPTUNE_ORGANIZATIONTABLE_NAME": {
-                        "Fn::ImportValue": {
-                            "Fn::Sub":"${apineptuneGraphQLAPIIdOutput}:GetAtt:OrganizationTable:Name"
-                        }
-                    },
-                    "API_NEPTUNE_ORGANIZATIONTABLE_ARN": {
-                        "Fn::Join": [
-                            "",
-                            [
-                                "arn:aws:dynamodb:",
-                                {
-                                    "Ref":"AWS::Region"
-                                },
-                                ":",
-                                {
-                                    "Ref":"AWS::AccountId"
-                                },
-                                ":table/",
-                                {
-                                    "Fn::ImportValue": {
-                                        "Fn::Sub":"${apineptuneGraphQLAPIIdOutput}:GetAtt:OrganizationTable:Name"
-                                    }
-                                }
-                            ]
-                        ]
-                    },
-                    "API_NEPTUNE_PERSONTABLE_NAME": {
-                        "Fn::ImportValue": {
-                            "Fn::Sub":"${apineptuneGraphQLAPIIdOutput}:GetAtt:PersonTable:Name"
-                        }
-                    },
-                    "API_NEPTUNE_PERSONTABLE_ARN": {
-                        "Fn::Join": [
-                            "",
-                            [
-                                "arn:aws:dynamodb:",
-                                {
-                                    "Ref":"AWS::Region"
-                                },
-                                ":",
-                                {
-                                    "Ref":"AWS::AccountId"
-                                },
-                                ":table/",
-                                {
-                                    "Fn::ImportValue": {
-                                        "Fn::Sub": "${apineptuneGraphQLAPIIdOutput}:GetAtt:PersonTable:Name"
-                                    }
-                                }
-                            ]
-                        ]
-                    }
-                }
-            },
-            "Role": { "Fn::GetAtt": ["LambdaExecutionRole", "Arn"] },
-            "Runtime": "python3.8",
-            "Layers": [{"Fn::Sub":"arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:layer:persondbgremlin-dev:2"}],
-            "Timeout": 25
+          "S3Key": {
+            "Ref": "s3Key"
           }
         },
-        "LambdaExecutionRole": {
-            "Type": "AWS::IAM::Role",
-            "Properties": {
-                "RoleName": {
-                    "Fn::If": [
-                        "ShouldNotCreateEnvResources",
-                        "persondbLambdaRole25cbc2d2",
-                        {
-
-                            "Fn::Join": [
-                                "",
-                                [
-                                    "persondbLambdaRole25cbc2d2",
-                                    "-",
-                                    {
-                                        "Ref": "env"
-                                    }
-                                ]
-                            ]
-                        }
-                    ]
-                },
-                "ManagedPolicyArns": [
-                    "arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole",
-                    "arn:aws:iam::aws:policy/NeptuneReadOnlyAccess"
-                ],
-                "AssumeRolePolicyDocument": {
-                    "Version": "2012-10-17",
-                    "Statement": [
-                        {
-                            "Effect": "Allow",
-                            "Principal": {
-                                "Service": [
-                                    "lambda.amazonaws.com"
-                                ]
-                            },
-                            "Action": [
-                                "sts:AssumeRole"
-                            ]
-                        }
-                    ]
-                }
+        "Handler": "index.handler",
+        "FunctionName": {
+          "Fn::If": [
+            "ShouldNotCreateEnvResources",
+            "getPeopleByOrganization",
+            {
+              "Fn::Join": [
+                "",
+                [
+                  "getPeopleByOrganization",
+                  "-",
+                  {
+                    "Ref": "env"
+                  }
+                ]
+              ]
             }
-        }
-        ,"lambdaexecutionpolicy": {
-            "DependsOn": ["LambdaExecutionRole"],
-            "Type": "AWS::IAM::Policy",
-            "Properties": {
-                "PolicyName": "lambda-execution-policy",
-                "Roles": [{ "Ref": "LambdaExecutionRole" }],
-                "PolicyDocument": {
-                    "Version": "2012-10-17",
-                    "Statement": [
-                        {
-                            "Effect": "Allow",
-                            "Action": ["logs:CreateLogGroup",
-                            "logs:CreateLogStream",
-                            "logs:PutLogEvents"],
-                            "Resource": { "Fn::Sub": [ "arn:aws:logs:${region}:${account}:log-group:/aws/lambda/${lambda}:log-stream:*", { "region": {"Ref": "AWS::Region"}, "account": {"Ref": "AWS::AccountId"}, "lambda": {"Ref": "LambdaFunction"}} ]}
-                        }
-                    ]
-                }
+          ]
+        },
+        "MemorySize": 1024,
+        "VpcConfig": {
+          "SecurityGroupIds": [
+            "sg-06c72ac28c5b252f0",
+            "sg-0a9703c553757bd0d"
+          ],
+          "SubnetIds": [
+            "subnet-0f44db6eb5b384a80",
+            "subnet-00d0d6d2045002649"
+          ]
+        },
+        "Environment": {
+          "Variables": {
+            "ENV": {
+              "Ref": "env"
+            },
+            "NEPTUNE_ENDPOINT": "db-bio-annotations-instance-1.cu9wyuyqqen8.ap-southeast-1.neptune.amazonaws.com",
+            "NEPTUNE_PORT": "8182",
+            "REGION": {
+              "Ref": "AWS::Region"
+            },
+            "API_NEPTUNE_GRAPHQLAPIIDOUTPUT": {
+              "Ref": "apineptuneGraphQLAPIIdOutput"
+            },
+            "API_NEPTUNE_GRAPHQLAPIENDPOINTOUTPUT": {
+              "Ref": "apineptuneGraphQLAPIEndpointOutput"
+            },
+            "API_NEPTUNE_GRAPHQLAPIKEYOUTPUT": {
+              "Ref": "apineptuneGraphQLAPIKeyOutput"
+            },
+            "API_NEPTUNE_ORGANIZATIONTABLE_NAME": {
+              "Fn::ImportValue": {
+                "Fn::Sub": "${apineptuneGraphQLAPIIdOutput}:GetAtt:OrganizationTable:Name"
+              }
+            },
+            "API_NEPTUNE_ORGANIZATIONTABLE_ARN": {
+              "Fn::Join": [
+                "",
+                [
+                  "arn:aws:dynamodb:",
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  ":",
+                  {
+                    "Ref": "AWS::AccountId"
+                  },
+                  ":table/",
+                  {
+                    "Fn::ImportValue": {
+                      "Fn::Sub": "${apineptuneGraphQLAPIIdOutput}:GetAtt:OrganizationTable:Name"
+                    }
+                  }
+                ]
+              ]
+            },
+            "API_NEPTUNE_PERSONTABLE_NAME": {
+              "Fn::ImportValue": {
+                "Fn::Sub": "${apineptuneGraphQLAPIIdOutput}:GetAtt:PersonTable:Name"
+              }
+            },
+            "API_NEPTUNE_PERSONTABLE_ARN": {
+              "Fn::Join": [
+                "",
+                [
+                  "arn:aws:dynamodb:",
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  ":",
+                  {
+                    "Ref": "AWS::AccountId"
+                  },
+                  ":table/",
+                  {
+                    "Fn::ImportValue": {
+                      "Fn::Sub": "${apineptuneGraphQLAPIIdOutput}:GetAtt:PersonTable:Name"
+                    }
+                  }
+                ]
+              ]
             }
-        }
-        ,"AmplifyResourcesPolicy": {
-            "DependsOn": ["LambdaExecutionRole"],
-            "Type": "AWS::IAM::Policy",
-            "Properties": {
-                "PolicyName": "amplify-lambda-execution-policy",
-                "Roles": [{ "Ref": "LambdaExecutionRole" }],
-                "PolicyDocument": {
-                    "Version": "2012-10-17",
-                    "Statement": [{"Effect":"Allow","Action":["appsync:GraphQL"],"Resource":[{"Fn::Join":["",["arn:aws:appsync:",{"Ref":"AWS::Region"},":",{"Ref":"AWS::AccountId"},":apis/",{"Ref":"apineptuneGraphQLAPIIdOutput"},"/types/Query/*"]]}]},{"Effect":"Allow","Action":["dynamodb:Get*","dynamodb:BatchGetItem","dynamodb:List*","dynamodb:Describe*","dynamodb:Scan","dynamodb:Query","dynamodb:PartiQLSelect"],"Resource":[{"Fn::Join":["",["arn:aws:dynamodb:",{"Ref":"AWS::Region"},":",{"Ref":"AWS::AccountId"},":table/",{"Fn::ImportValue":{"Fn::Sub":"${apineptuneGraphQLAPIIdOutput}:GetAtt:OrganizationTable:Name"}}]]},{"Fn::Join":["",["arn:aws:dynamodb:",{"Ref":"AWS::Region"},":",{"Ref":"AWS::AccountId"},":table/",{"Fn::ImportValue":{"Fn::Sub":"${apineptuneGraphQLAPIIdOutput}:GetAtt:OrganizationTable:Name"}},"/index/*"]]}]},{"Effect":"Allow","Action":["dynamodb:Get*","dynamodb:BatchGetItem","dynamodb:List*","dynamodb:Describe*","dynamodb:Scan","dynamodb:Query","dynamodb:PartiQLSelect"],"Resource":[{"Fn::Join":["",["arn:aws:dynamodb:",{"Ref":"AWS::Region"},":",{"Ref":"AWS::AccountId"},":table/",{"Fn::ImportValue":{"Fn::Sub":"${apineptuneGraphQLAPIIdOutput}:GetAtt:PersonTable:Name"}}]]},{"Fn::Join":["",["arn:aws:dynamodb:",{"Ref":"AWS::Region"},":",{"Ref":"AWS::AccountId"},":table/",{"Fn::ImportValue":{"Fn::Sub":"${apineptuneGraphQLAPIIdOutput}:GetAtt:PersonTable:Name"}},"/index/*"]]}]}]
-                }
-            }
-        }
-        
-        
-        
+          }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "LambdaExecutionRole",
+            "Arn"
+          ]
+        },
+        "Runtime": "python3.8",
+        "Layers": [
+          {
+            "Fn::Sub": "arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:layer:persondbgremlin-dev:2"
+          }
+        ],
+        "Timeout": 25
+      }
     },
-    "Outputs": {
-        "Name": {
-            "Value": {
-                "Ref": "LambdaFunction"
+    "LambdaExecutionRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "RoleName": {
+          "Fn::If": [
+            "ShouldNotCreateEnvResources",
+            "persondbLambdaRole25cbc2d2",
+            {
+              "Fn::Join": [
+                "",
+                [
+                  "persondbLambdaRole25cbc2d2",
+                  "-",
+                  {
+                    "Ref": "env"
+                  }
+                ]
+              ]
             }
+          ]
         },
-        "Arn": {
-            "Value": {"Fn::GetAtt": ["LambdaFunction", "Arn"]}
-        },
-        "Region": {
-            "Value": {
-                "Ref": "AWS::Region"
+        "ManagedPolicyArns": [
+          "arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole",
+          "arn:aws:iam::aws:policy/NeptuneReadOnlyAccess"
+        ],
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": [
+                  "lambda.amazonaws.com"
+                ]
+              },
+              "Action": [
+                "sts:AssumeRole"
+              ]
             }
-        },
-        "LambdaExecutionRole": {
-            "Value": {
-                "Ref": "LambdaExecutionRole"
-            }
+          ]
         }
-        
+      }
+    },
+    "lambdaexecutionpolicy": {
+      "DependsOn": [
+        "LambdaExecutionRole"
+      ],
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyName": "lambda-execution-policy",
+        "Roles": [
+          {
+            "Ref": "LambdaExecutionRole"
+          }
+        ],
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+              ],
+              "Resource": {
+                "Fn::Sub": [
+                  "arn:aws:logs:${region}:${account}:log-group:/aws/lambda/${lambda}:log-stream:*",
+                  {
+                    "region": {
+                      "Ref": "AWS::Region"
+                    },
+                    "account": {
+                      "Ref": "AWS::AccountId"
+                    },
+                    "lambda": {
+                      "Ref": "LambdaFunction"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    "AmplifyResourcesPolicy": {
+      "DependsOn": [
+        "LambdaExecutionRole"
+      ],
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyName": "amplify-lambda-execution-policy",
+        "Roles": [
+          {
+            "Ref": "LambdaExecutionRole"
+          }
+        ],
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "appsync:GraphQL"
+              ],
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:appsync:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":apis/",
+                      {
+                        "Ref": "apineptuneGraphQLAPIIdOutput"
+                      },
+                      "/types/Query/*"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "dynamodb:Get*",
+                "dynamodb:BatchGetItem",
+                "dynamodb:List*",
+                "dynamodb:Describe*",
+                "dynamodb:Scan",
+                "dynamodb:Query",
+                "dynamodb:PartiQLSelect"
+              ],
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:dynamodb:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":table/",
+                      {
+                        "Fn::ImportValue": {
+                          "Fn::Sub": "${apineptuneGraphQLAPIIdOutput}:GetAtt:OrganizationTable:Name"
+                        }
+                      }
+                    ]
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:dynamodb:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":table/",
+                      {
+                        "Fn::ImportValue": {
+                          "Fn::Sub": "${apineptuneGraphQLAPIIdOutput}:GetAtt:OrganizationTable:Name"
+                        }
+                      },
+                      "/index/*"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "dynamodb:Get*",
+                "dynamodb:BatchGetItem",
+                "dynamodb:List*",
+                "dynamodb:Describe*",
+                "dynamodb:Scan",
+                "dynamodb:Query",
+                "dynamodb:PartiQLSelect"
+              ],
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:dynamodb:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":table/",
+                      {
+                        "Fn::ImportValue": {
+                          "Fn::Sub": "${apineptuneGraphQLAPIIdOutput}:GetAtt:PersonTable:Name"
+                        }
+                      }
+                    ]
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:dynamodb:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":table/",
+                      {
+                        "Fn::ImportValue": {
+                          "Fn::Sub": "${apineptuneGraphQLAPIIdOutput}:GetAtt:PersonTable:Name"
+                        }
+                      },
+                      "/index/*"
+                    ]
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
     }
+  },
+  "Outputs": {
+    "Name": {
+      "Value": {
+        "Ref": "LambdaFunction"
+      }
+    },
+    "Arn": {
+      "Value": {
+        "Fn::GetAtt": [
+          "LambdaFunction",
+          "Arn"
+        ]
+      }
+    },
+    "Region": {
+      "Value": {
+        "Ref": "AWS::Region"
+      }
+    },
+    "LambdaExecutionRole": {
+      "Value": {
+        "Ref": "LambdaExecutionRole"
+      }
+    },
+    "LambdaExecutionRoleArn": {
+      "Value": {
+        "Fn::GetAtt": [
+          "LambdaExecutionRole",
+          "Arn"
+        ]
+      }
+    }
+  }
 }

@@ -6,5 +6,6 @@ export { default as SelectSearchBox } from "./SelectSearchBox";
 export { default as SearchInput } from "./SearchInput";
 export { default as NameSearchBox } from "./NameSearchBox";
 export { default as DynamicSearchBox } from "./DynamicSearchBox";
+export { default as ResultsGraph } from "./ResultsGraph";
 
 export { SearchInputWrapper, SearchDropdownWrapper } from "./InputWrappers";

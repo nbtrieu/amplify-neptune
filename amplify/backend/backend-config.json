@@ -195,6 +195,22 @@
         }
       ]
     },
+    "AMPLIFY_function_getKeywordProperties_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getKeywordProperties"
+        }
+      ]
+    },
+    "AMPLIFY_function_getKeywordProperties_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getKeywordProperties"
+        }
+      ]
+    },
     "AMPLIFY_function_getPeopleByKeyword_deploymentBucketName": {
       "usedBy": [
         {
@@ -208,6 +224,38 @@
         {
           "category": "function",
           "resourceName": "getPeopleByKeyword"
+        }
+      ]
+    },
+    "AMPLIFY_function_getPeopleByOrganization_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getPeopleByOrganization"
+        }
+      ]
+    },
+    "AMPLIFY_function_getPeopleByOrganization_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getPeopleByOrganization"
+        }
+      ]
+    },
+    "AMPLIFY_function_getPersonByName_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getPersonByName"
+        }
+      ]
+    },
+    "AMPLIFY_function_getPersonByName_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getPersonByName"
         }
       ]
     },
