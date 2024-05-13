@@ -3,6 +3,7 @@ import certifi
 from gremlin_python.driver.driver_remote_connection import DriverRemoteConnection
 from gremlin_python.process.anonymous_traversal import traversal
 from gremlin_python.process.graph_traversal import __
+from gremlin_python.process.traversal import P
 
 
 def handler(event, context):
@@ -19,10 +20,10 @@ def handler(event, context):
 
         query_result = (
             g.V()
-            .has("person", "name", name)
-            .valueMap()
-            .dedup()
-            .toList()
+        .hasLabel('person')
+        .filter(__.values('name').is_(P.containing(name)))  # Filters vertices whose 'name' property contains the input string
+        .valueMap()
+        .toList()
         )
         print(f"Query result: {query_result}")
 
