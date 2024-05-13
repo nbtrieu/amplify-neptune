@@ -1,5 +1,6 @@
 import ssl
 import certifi
+import re
 from gremlin_python.driver.driver_remote_connection import DriverRemoteConnection
 from gremlin_python.process.anonymous_traversal import traversal
 from gremlin_python.process.graph_traversal import __
@@ -10,6 +11,7 @@ def handler(event, context):
     try:
         name = event.get('name')
         print(f"Name received: {name}")
+        regex_pattern = f".*{re.escape(name)}.*"
 
         gremlin_url = "wss://db-bio-annotations.cluster-cu9wyuyqqen8.ap-southeast-1.neptune.amazonaws.com:8182/gremlin"
         ssl_context = ssl.create_default_context(cafile=certifi.where())
@@ -20,10 +22,10 @@ def handler(event, context):
 
         query_result = (
             g.V()
-        .hasLabel('person')
-        .filter(__.values('name').is_(P.containing(name)))  # Filters vertices whose 'name' property contains the input string
-        .valueMap()
-        .toList()
+            .has('person', 'name', P.eq(P.regex(regex_pattern)))  # regex for fuzzy search
+            .valueMap()
+            .dedup()
+            .toList()
         )
         print(f"Query result: {query_result}")
 
