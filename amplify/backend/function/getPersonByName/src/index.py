@@ -22,7 +22,7 @@ def handler(event, context):
 
         query_result = (
             g.V()
-            .has('person', 'name', P.eq(P.regex(regex_pattern)))  # regex for fuzzy search
+            .has('person', 'name', P.eq(P.regex(regex_pattern)))  # Use regex for fuzzy search
             .valueMap()
             .dedup()
             .toList()

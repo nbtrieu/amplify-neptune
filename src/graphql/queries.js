@@ -16,7 +16,9 @@ export const searchByKeyword = /* GraphQL */ `
   query SearchByKeyword($keyword: String!) {
     searchByKeyword(keyword: $keyword) {
       uid
-      name
+      first_name
+      last_name
+      full_name
       email
       phone
       title
@@ -34,7 +36,9 @@ export const searchByOrganization = /* GraphQL */ `
   query SearchByOrganization($organization: String!) {
     searchByOrganization(organization: $organization) {
       uid
-      name
+      first_name
+      last_name
+      full_name
       email
       phone
       title
@@ -52,7 +56,9 @@ export const searchByName = /* GraphQL */ `
   query SearchByName($name: String!) {
     searchByName(name: $name) {
       uid
-      name
+      first_name
+      last_name
+      full_name
       email
       phone
       title

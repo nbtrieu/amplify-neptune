@@ -7,6 +7,7 @@ import '../index.css';
 
 const ResultsTable = () => {
     const { results } = useContext(SearchContext);
+    console.log(results);
     
     if (!results || results.length === 0) {
         return <div className='no-results'>No results found.</div>;
@@ -36,7 +37,9 @@ const ResultsTable = () => {
                 <table>
                     <thead className="table-header">
                         <tr className="table-header">
-                            <th className="table-cell table-cell-name">NAME</th>
+                            <th className="table-cell table-cell-name">FIRST NAME</th>
+                            <th className="table-cell table-cell-name">LAST NAME</th>
+                            <th className="table-cell table-cell-name">FULL NAME</th>
                             <th className="table-cell table-cell-email">EMAIL</th>
                             <th className="table-cell table-cell-phone">PHONE</th>
                             <th className="table-cell table-cell-title">TITLE</th>
@@ -50,7 +53,9 @@ const ResultsTable = () => {
                     <tbody>
                         {results.map((item, index) => (
                             <tr key={index} className="table-row">
-                                <td className="table-cell table-cell-name">{item.name}</td>
+                                <td className="table-cell table-cell-name">{item.first_name}</td>
+                                <td className="table-cell table-cell-name">{item.last_name}</td>
+                                <td className="table-cell table-cell-name">{item.full_name}</td>
                                 <td className="table-cell table-cell-email">{item.email}</td>
                                 <td className="table-cell table-cell-phone">{item.phone}</td>
                                 <td className="table-cell table-cell-title">{item.title}</td>
