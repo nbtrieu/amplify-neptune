@@ -29,19 +29,19 @@ const NavBar = ({ signOut }) => {
             to="/" 
             className={({ isActive }) => `nav-item ${isActive ? 'active-nav-item' : ''}`}
           >
-            Keyword
+            Keywords
           </NavLink>
           <NavLink 
             to="/organization" 
             className={({ isActive }) => `nav-item ${isActive ? 'active-nav-item' : ''}`}
           >
-            Organization
+            Organizations
           </NavLink>
           <NavLink 
             to="/name" 
             className={({ isActive }) => `nav-item ${isActive ? 'active-nav-item' : ''}`}
           >
-            Name
+            Names
           </NavLink>
         </div>
         <Box sx={{ flexGrow: 0 }}>
