@@ -1,16 +1,5 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
-export const getKeywordUid = /* GraphQL */ `
-  query GetKeywordUid($keyword: String!) {
-    getKeywordUid(keyword: $keyword)
-  }
-`
-
-export const getNodeCount = /* GraphQL */ `
-  query GetNodeCount {
-    getNodeCount
-  }
-`
 
 export const searchByKeyword = /* GraphQL */ `
   query SearchByKeyword($keyword: String!) {
@@ -31,7 +20,6 @@ export const searchByKeyword = /* GraphQL */ `
     }
   }
 `;
-
 export const searchByOrganization = /* GraphQL */ `
   query SearchByOrganization($organization: String!) {
     searchByOrganization(organization: $organization) {
@@ -51,7 +39,6 @@ export const searchByOrganization = /* GraphQL */ `
     }
   }
 `;
-
 export const searchByName = /* GraphQL */ `
   query SearchByName($name: String!) {
     searchByName(name: $name) {
@@ -71,7 +58,16 @@ export const searchByName = /* GraphQL */ `
     }
   }
 `;
-
+export const getNodeCount = /* GraphQL */ `
+  query GetNodeCount {
+    getNodeCount
+  }
+`;
+export const getKeywordUid = /* GraphQL */ `
+  query GetKeywordUid($keyword: String!) {
+    getKeywordUid(keyword: $keyword)
+  }
+`;
 export const getKeyword = /* GraphQL */ `
   query GetKeyword($id: ID!) {
     getKeyword(id: $id) {
