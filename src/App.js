@@ -3,7 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Authenticator } from '@aws-amplify/ui-react';
 import { Amplify } from 'aws-amplify';
-import config from './aws-exports.js';
+import awsmobile from './aws-exports.js';
 
 import { NavBar } from './components';
 import KeywordSearchPage from './pages/KeywordSearchPage.js';
@@ -12,7 +12,7 @@ import NameSearchPage from './pages/NameSearchPage.js';
 
 import '@aws-amplify/ui-react/styles.css';
 
-Amplify.configure(config);
+Amplify.configure(awsmobile);
 
 function App() {
   return (
