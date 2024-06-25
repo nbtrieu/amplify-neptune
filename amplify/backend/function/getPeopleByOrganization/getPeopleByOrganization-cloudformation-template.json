@@ -16,6 +16,10 @@
     "s3Key": {
       "Type": "String"
     },
+    "functionpersondbgremlinArn": {
+      "Type": "String",
+      "Default": "functionpersondbgremlinArn"
+    },
     "apineptuneGraphQLAPIIdOutput": {
       "Type": "String",
       "Default": "apineptuneGraphQLAPIIdOutput"
@@ -27,10 +31,6 @@
     "apineptuneGraphQLAPIKeyOutput": {
       "Type": "String",
       "Default": "apineptuneGraphQLAPIKeyOutput"
-    },
-    "functionpersondbgremlinArn": {
-      "Type": "String",
-      "Default": "functionpersondbgremlinArn"
     }
   },
   "Conditions": {

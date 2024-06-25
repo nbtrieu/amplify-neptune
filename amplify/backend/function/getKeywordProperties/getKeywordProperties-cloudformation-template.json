@@ -92,6 +92,9 @@
             },
             "NEPTUNE_ENDPOINT": "db-bio-annotations-instance-1.cu9wyuyqqen8.ap-southeast-1.neptune.amazonaws.com",
             "NEPTUNE_PORT": "8182",
+            "REGION": {
+              "Ref": "AWS::Region"
+            },
             "API_NEPTUNE_GRAPHQLAPIIDOUTPUT": {
               "Ref": "apineptuneGraphQLAPIIdOutput"
             },

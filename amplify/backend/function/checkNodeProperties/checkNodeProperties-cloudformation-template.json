@@ -83,7 +83,10 @@
               "Ref": "env"
             },
             "NEPTUNE_ENDPOINT": "db-bio-annotations-instance-1.cu9wyuyqqen8.ap-southeast-1.neptune.amazonaws.com",
-            "NEPTUNE_PORT": "8182"
+            "NEPTUNE_PORT": "8182",
+            "REGION": {
+              "Ref": "AWS::Region"
+            }
           }
         },
         "Role": {
