@@ -3,7 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Authenticator } from '@aws-amplify/ui-react';
 import { Amplify } from 'aws-amplify';
-// import config from './aws-exports.js';
+import config from './aws-exports.js';
 
 import { NavBar } from './components';
 import KeywordSearchPage from './pages/KeywordSearchPage.js';
@@ -12,18 +12,7 @@ import NameSearchPage from './pages/NameSearchPage.js';
 
 import '@aws-amplify/ui-react/styles.css';
 
-// Amplify.configure(config);
-
-Amplify.configure({
-  API: {
-    GraphQL: {
-      endpoint: 'https://jlo3hn75dzalfpl4mqd4lkauaq.appsync-api.ap-southeast-1.amazonaws.com/graphql',
-      region: 'ap-southeast-1',
-      defaultAuthMode: 'apiKey',
-      apiKey: 'da2-qdhnc557vncsbc5jiywtthewri'
-    }
-  }
-});
+Amplify.configure(config);
 
 function App() {
   return (
