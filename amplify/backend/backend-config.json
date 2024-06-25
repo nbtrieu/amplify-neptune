@@ -77,8 +77,7 @@
         {
           "attributes": [
             "GraphQLAPIIdOutput",
-            "GraphQLAPIEndpointOutput",
-            "GraphQLAPIKeyOutput"
+            "GraphQLAPIEndpointOutput"
           ],
           "category": "api",
           "resourceName": "neptune"
@@ -93,8 +92,7 @@
         {
           "attributes": [
             "GraphQLAPIIdOutput",
-            "GraphQLAPIEndpointOutput",
-            "GraphQLAPIKeyOutput"
+            "GraphQLAPIEndpointOutput"
           ],
           "category": "api",
           "resourceName": "neptune"
@@ -116,8 +114,7 @@
         {
           "attributes": [
             "GraphQLAPIIdOutput",
-            "GraphQLAPIEndpointOutput",
-            "GraphQLAPIKeyOutput"
+            "GraphQLAPIEndpointOutput"
           ],
           "category": "api",
           "resourceName": "neptune"
@@ -139,8 +136,7 @@
         {
           "attributes": [
             "GraphQLAPIIdOutput",
-            "GraphQLAPIEndpointOutput",
-            "GraphQLAPIKeyOutput"
+            "GraphQLAPIEndpointOutput"
           ],
           "category": "api",
           "resourceName": "neptune"

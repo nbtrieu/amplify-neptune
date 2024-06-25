@@ -2,5 +2,7 @@
   "AppSyncApiName": "neptune",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
   "DynamoDBEnableServerSideEncryption": false,
-  "AuthModeLastUpdated": "2024-04-18T00:46:47.006Z"
+  "AuthModeLastUpdated": "2024-04-18T00:46:47.006Z",
+  "APIKeyExpirationEpoch": -1,
+  "CreateAPIKey": 0
 }
