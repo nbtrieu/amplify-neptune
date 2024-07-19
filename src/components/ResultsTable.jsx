@@ -37,7 +37,7 @@ const ResultsTable = () => {
                 <table>
                     <thead className="table-header">
                         <tr className="table-header">
-                            <th className="table-cell table-cell-uid">UID</th>
+                            <th className="table-cell table-cell-uid">UUID</th>
                             <th className="table-cell table-cell-customer-id">CUSTOMER ID</th>
                             <th className="table-cell table-cell-name">FIRST NAME</th>
                             <th className="table-cell table-cell-name">LAST NAME</th>
@@ -65,7 +65,7 @@ const ResultsTable = () => {
                     <tbody>
                         {results.map((item, index) => (
                             <tr key={index} className="table-row">
-                                <td className="table-cell table-cell-uid">{item.uid}</td>
+                                <td className="table-cell table-cell-uid">{item.uuid}</td>
                                 <td className="table-cell table-cell-customer-id">{item.customer_id}</td>
                                 <td className="table-cell table-cell-name">{item.first_name}</td>
                                 <td className="table-cell table-cell-name">{item.last_name}</td>
