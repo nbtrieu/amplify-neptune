@@ -4,7 +4,7 @@
 export const searchByKeyword = /* GraphQL */ `
   query SearchByKeyword($keyword: String!) {
     searchByKeyword(keyword: $keyword) {
-      uid
+      uuid
       customer_id
       first_name
       last_name
@@ -35,7 +35,7 @@ export const searchByKeyword = /* GraphQL */ `
 export const searchByOrganization = /* GraphQL */ `
   query SearchByOrganization($organization: String!) {
     searchByOrganization(organization: $organization) {
-      uid
+      uuid
       customer_id
       first_name
       last_name
@@ -66,7 +66,7 @@ export const searchByOrganization = /* GraphQL */ `
 export const searchByName = /* GraphQL */ `
   query SearchByName($name: String!) {
     searchByName(name: $name) {
-      uid
+      uuid
       customer_id
       first_name
       last_name
@@ -108,7 +108,7 @@ export const getKeyword = /* GraphQL */ `
   query GetKeyword($id: ID!) {
     getKeyword(id: $id) {
       id
-      uid
+      uuid
       name
       KeywordOwners {
         nextToken
@@ -129,7 +129,7 @@ export const listKeywords = /* GraphQL */ `
     listKeywords(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        uid
+        uuid
         name
         createdAt
         updatedAt
@@ -144,7 +144,7 @@ export const getOrganization = /* GraphQL */ `
   query GetOrganization($id: ID!) {
     getOrganization(id: $id) {
       id
-      uid
+      uuid
       name
       mailing_address
       OrganizationMembers {
@@ -166,7 +166,7 @@ export const listOrganizations = /* GraphQL */ `
     listOrganizations(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        uid
+        uuid
         name
         mailing_address
         createdAt
@@ -182,7 +182,7 @@ export const getPerson = /* GraphQL */ `
   query GetPerson($id: ID!) {
     getPerson(id: $id) {
       id
-      uid
+      uuid
       name
       email
       phone
@@ -214,7 +214,7 @@ export const listPeople = /* GraphQL */ `
     listPeople(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        uid
+        uuid
         name
         email
         phone
@@ -240,7 +240,7 @@ export const getKeywordPerson = /* GraphQL */ `
       personId
       keyword {
         id
-        uid
+        uuid
         name
         createdAt
         updatedAt
@@ -248,7 +248,7 @@ export const getKeywordPerson = /* GraphQL */ `
       }
       person {
         id
-        uid
+        uuid
         name
         email
         phone
@@ -351,7 +351,7 @@ export const getOrganizationPerson = /* GraphQL */ `
       personId
       organization {
         id
-        uid
+        uuid
         name
         mailing_address
         createdAt
@@ -360,7 +360,7 @@ export const getOrganizationPerson = /* GraphQL */ `
       }
       person {
         id
-        uid
+        uuid
         name
         email
         phone
