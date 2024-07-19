@@ -37,6 +37,8 @@ const ResultsTable = () => {
                 <table>
                     <thead className="table-header">
                         <tr className="table-header">
+                            <th className="table-cell table-cell-uid">UID</th>
+                            <th className="table-cell table-cell-customer-id">CUSTOMER ID</th>
                             <th className="table-cell table-cell-name">FIRST NAME</th>
                             <th className="table-cell table-cell-name">LAST NAME</th>
                             <th className="table-cell table-cell-name">FULL NAME</th>
@@ -45,7 +47,7 @@ const ResultsTable = () => {
                             <th className="table-cell table-cell-title">TITLE</th>
                             <th className="table-cell table-cell-organization">ORGANIZATION</th>
                             <th className="table-cell table-cell-mailing-address">MAILING ADDRESS</th>
-                            <th className="table-cell table-cell-areas-of-interest">AREAS OF INTEREST</th>
+                            <th className="table-cell table-cell-interest-areas">AREAS OF INTEREST</th>
                             <th className="table-cell table-cell-lead-source">LEAD SOURCE</th>
                             <th className="table-cell table-cell-event-name">EVENT NAME</th>
                             <th className="table-cell table-cell-social-media">SOCIAL MEDIA</th>
@@ -55,6 +57,7 @@ const ResultsTable = () => {
                             <th className="table-cell table-cell-tentative-organizations">TENTATIVE ORGANIZATIONS</th>
                             <th className="table-cell table-cell-purchasing-agent">PURCHASING AGENT</th>
                             <th className="table-cell table-cell-validated-lead-status">VALIDATED LEAD STATUS</th>
+                            <th className="table-cell table-cell-status">STATUS</th>
                             <th className="table-cell table-cell-ingestion-tag">INGESTION TAG</th>
                             <th className="table-cell table-cell-data-source">DATA SOURCE</th>
                         </tr>
@@ -62,6 +65,8 @@ const ResultsTable = () => {
                     <tbody>
                         {results.map((item, index) => (
                             <tr key={index} className="table-row">
+                                <td className="table-cell table-cell-uid">{item.uid}</td>
+                                <td className="table-cell table-cell-customer-id">{item.customer_id}</td>
                                 <td className="table-cell table-cell-name">{item.first_name}</td>
                                 <td className="table-cell table-cell-name">{item.last_name}</td>
                                 <td className="table-cell table-cell-name">{item.full_name}</td>
@@ -70,7 +75,7 @@ const ResultsTable = () => {
                                 <td className="table-cell table-cell-title">{item.title}</td>
                                 <td className="table-cell table-cell-organization">{item.organization}</td>
                                 <td className="table-cell table-cell-mailing-address">{item.mailing_address}</td>
-                                <td className="table-cell table-cell-areas-of-interest">{item.interest_areas}</td>
+                                <td className="table-cell table-cell-interest-areas">{item.interest_areas}</td>
                                 <td className="table-cell table-cell-lead-source">{item.lead_source}</td>
                                 <td className="table-cell table-cell-event-name">{item.event_name}</td>
                                 <td className="table-cell table-cell-social-media">{item.social_media}</td>
@@ -80,6 +85,7 @@ const ResultsTable = () => {
                                 <td className="table-cell table-cell-tentative-organizations">{item.tentative_organizations}</td>
                                 <td className="table-cell table-cell-purchasing-agent">{item.purchasing_agent}</td>
                                 <td className="table-cell table-cell-validated-lead-status">{item.validated_lead_status}</td>
+                                <td className="table-cell table-cell-status">{item.status}</td>
                                 <td className="table-cell table-cell-ingestion-tag">{item.ingestion_tag}</td>
                                 <td className="table-cell table-cell-data-source">{item.data_source}</td>
                             </tr>
