@@ -5,6 +5,7 @@ export const searchByKeyword = /* GraphQL */ `
   query SearchByKeyword($keyword: String!) {
     searchByKeyword(keyword: $keyword) {
       uid
+      customer_id
       first_name
       last_name
       full_name
@@ -16,14 +17,26 @@ export const searchByKeyword = /* GraphQL */ `
       interest_areas
       lead_source
       event_name
+      social_media
+      date_of_birth
+      previous_titles
+      previous_organizations
+      tentative_organizations
+      purchasing_agent
+      validated_lead_status
+      status
+      ingestion_tag
+      data_source
       __typename
     }
   }
 `;
+
 export const searchByOrganization = /* GraphQL */ `
   query SearchByOrganization($organization: String!) {
     searchByOrganization(organization: $organization) {
       uid
+      customer_id
       first_name
       last_name
       full_name
@@ -35,14 +48,26 @@ export const searchByOrganization = /* GraphQL */ `
       interest_areas
       lead_source
       event_name
+      social_media
+      date_of_birth
+      previous_titles
+      previous_organizations
+      tentative_organizations
+      purchasing_agent
+      validated_lead_status
+      status
+      ingestion_tag
+      data_source
       __typename
     }
   }
 `;
+
 export const searchByName = /* GraphQL */ `
   query SearchByName($name: String!) {
     searchByName(name: $name) {
       uid
+      customer_id
       first_name
       last_name
       full_name
@@ -54,10 +79,21 @@ export const searchByName = /* GraphQL */ `
       interest_areas
       lead_source
       event_name
+      social_media
+      date_of_birth
+      previous_titles
+      previous_organizations
+      tentative_organizations
+      purchasing_agent
+      validated_lead_status
+      status
+      ingestion_tag
+      data_source
       __typename
     }
   }
 `;
+
 export const getNodeCount = /* GraphQL */ `
   query GetNodeCount {
     getNodeCount

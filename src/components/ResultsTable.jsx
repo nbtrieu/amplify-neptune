@@ -48,6 +48,15 @@ const ResultsTable = () => {
                             <th className="table-cell table-cell-areas-of-interest">AREAS OF INTEREST</th>
                             <th className="table-cell table-cell-lead-source">LEAD SOURCE</th>
                             <th className="table-cell table-cell-event-name">EVENT NAME</th>
+                            <th className="table-cell table-cell-social-media">SOCIAL MEDIA</th>
+                            <th className="table-cell table-cell-date-of-birth">DATE OF BIRTH</th>
+                            <th className="table-cell table-cell-previous-titles">PREVIOUS TITLES</th>
+                            <th className="table-cell table-cell-previous-organizations">PREVIOUS ORGANIZATIONS</th>
+                            <th className="table-cell table-cell-tentative-organizations">TENTATIVE ORGANIZATIONS</th>
+                            <th className="table-cell table-cell-purchasing-agent">PURCHASING AGENT</th>
+                            <th className="table-cell table-cell-validated-lead-status">VALIDATED LEAD STATUS</th>
+                            <th className="table-cell table-cell-ingestion-tag">INGESTION TAG</th>
+                            <th className="table-cell table-cell-data-source">DATA SOURCE</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -64,6 +73,15 @@ const ResultsTable = () => {
                                 <td className="table-cell table-cell-areas-of-interest">{item.interest_areas}</td>
                                 <td className="table-cell table-cell-lead-source">{item.lead_source}</td>
                                 <td className="table-cell table-cell-event-name">{item.event_name}</td>
+                                <td className="table-cell table-cell-social-media">{item.social_media}</td>
+                                <td className="table-cell table-cell-date-of-birth">{item.date_of_birth}</td>
+                                <td className="table-cell table-cell-previous-titles">{item.previous_titles}</td>
+                                <td className="table-cell table-cell-previous-organizations">{item.previous_organizations}</td>
+                                <td className="table-cell table-cell-tentative-organizations">{item.tentative_organizations}</td>
+                                <td className="table-cell table-cell-purchasing-agent">{item.purchasing_agent}</td>
+                                <td className="table-cell table-cell-validated-lead-status">{item.validated_lead_status}</td>
+                                <td className="table-cell table-cell-ingestion-tag">{item.ingestion_tag}</td>
+                                <td className="table-cell table-cell-data-source">{item.data_source}</td>
                             </tr>
                         ))}
                     </tbody>
