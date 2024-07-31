@@ -58,6 +58,43 @@ type NeptunePerson {
   data_source: String
 }
 
+type PublicationProduct {
+  uuid: String!
+  url: String
+  doi: String
+  name: String
+  company: String
+}
+
+type AuthorAffiliation {
+  author: String
+  affiliation: String
+  first_author: Boolean
+  second_author: Boolean
+  equal_contribution: Boolean
+  email: String
+}
+
+type Publication {
+  uuid: String!
+  title: String
+  doi: String
+  publication_date: String
+  affiliations: [AuthorAffiliation]
+  abstract: [String]
+  source_name: String
+  volume: String
+  issue: String
+  start_page: String
+  end_page: String
+  keywords: [String]
+  publication_type: String
+  citations: Int
+  references: [String]
+  url: String
+  notes: String
+}
+
 type Query {
   searchByKeyword(keyword: String!): [NeptunePerson]
   searchByOrganization(organization: String!): [NeptunePerson]
