@@ -96,6 +96,7 @@ type Publication {
 }
 
 type Query {
+  searchPublicationsByProduct(product_name: String!): [Publication]
   searchByKeyword(keyword: String!): [NeptunePerson]
   searchByOrganization(organization: String!): [NeptunePerson]
   searchByName(name: String!): [NeptunePerson]
