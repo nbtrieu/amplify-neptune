@@ -93,6 +93,8 @@
                     }
                 ]
             },
+"MemorySize": 1024,
+"VpcConfig": {"SecurityGroupIds": ["sg-06c72ac28c5b252f0", "sg-0a9703c553757bd0d"],"SubnetIds": ["subnet-0f44db6eb5b384a80","subnet-00d0d6d2045002649"]},
             "Environment": {
                 "Variables" : {"ENV":{"Ref":"env"},"REGION":{"Ref":"AWS::Region"},"API_NEPTUNE_GRAPHQLAPIIDOUTPUT":{"Ref":"apineptuneGraphQLAPIIdOutput"},"API_NEPTUNE_GRAPHQLAPIENDPOINTOUTPUT":{"Ref":"apineptuneGraphQLAPIEndpointOutput"},"API_NEPTUNE_GRAPHQLAPIKEYOUTPUT":{"Ref":"apineptuneGraphQLAPIKeyOutput"}}
             },
@@ -124,7 +126,10 @@
                         }
                     ]
                 },
-                "AssumeRolePolicyDocument": {
+"ManagedPolicyArns": [
+"arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole",
+"arn:aws:iam::aws:policy/NeptuneReadOnlyAccess"
+],                "AssumeRolePolicyDocument": {
                     "Version": "2012-10-17",
                     "Statement": [
                         {
