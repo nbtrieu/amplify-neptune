@@ -30,7 +30,11 @@ def handler(event, context):
 
         result = []
         for publication in query_result:
-            formatted_publication = {k: v[0] if v else None for k, v in publication.items()}  # so that each field should have a single str value instead of list
+            formatted_publication = {k: v[0] if isinstance(v, list) and len(v) == 1 else v for k, v in publication.items()}
+            formatted_publication['abstract'] = formatted_publication.get('abstract', [])
+            formatted_publication['affiliations'] = formatted_publication.get('affiliations', [])
+            formatted_publication['keywords'] = formatted_publication.get('keywords', [])
+            formatted_publication['references'] = formatted_publication.get('references', [])
             result.append(formatted_publication)
 
         print(f"Formatted result: {result}")  # output: <class 'list'>
