@@ -33,9 +33,10 @@ def handler(event, context):
         for publication in query_result:
             formatted_publication = {k: v[0] if isinstance(v, list) and len(v) == 1 else v for k, v in publication.items()}
             formatted_publication['abstract'] = formatted_publication.get('abstract', [])
-            formatted_publication['affiliations'] = formatted_publication.get('affiliations', [])
-            formatted_publication['keywords'] = formatted_publication.get('keywords', [])
-            # Parse references field from JSON string to list
+            affiliations_json_str = formatted_publication.get('affiliations', [])
+            formatted_publication['affiliations'] = json.loads(affiliations_json_str)
+            keywords = formatted_publication.get('keywords', [])
+            formatted_publication['keywords'] = keywords if keywords is not None else []            
             references_json_str = formatted_publication.get('references', '[]')
             formatted_publication['references'] = json.loads(references_json_str)
             result.append(formatted_publication)
