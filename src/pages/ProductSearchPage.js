@@ -1,11 +1,22 @@
 import React from 'react';
+import { SearchResultComponent } from '../components';
+import { SearchProvider } from "../context/SearchContext";
+import { searchPublicationsByProduct } from '../graphql/queries';
+import publicationProductOptionsList from "../options/publicationProductOptions.js";
 
-export function ProductSearchPage(props) {
-    
-
+export function ProductSearchPage() {
     return (
-        <>
-            <p>Search By Product</p>
-        </>
+        <SearchProvider>
+            <SearchResultComponent
+                SearchBoxComponent={SelectSearchBox}
+                searchProps={{
+                query: searchPublicationsByProduct,
+                variableKey: "product_name",
+                options: publicationProductOptionsList,
+                title: "Search by product",
+                description: "Find publications that mention:"
+                }}
+            />
+        </SearchProvider>
     )
 }
