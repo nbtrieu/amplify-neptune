@@ -1,5 +1,6 @@
 import ssl
 import certifi
+import json
 from gremlin_python.driver.driver_remote_connection import DriverRemoteConnection
 from gremlin_python.process.anonymous_traversal import traversal
 from gremlin_python.process.graph_traversal import __
@@ -34,7 +35,9 @@ def handler(event, context):
             formatted_publication['abstract'] = formatted_publication.get('abstract', [])
             formatted_publication['affiliations'] = formatted_publication.get('affiliations', [])
             formatted_publication['keywords'] = formatted_publication.get('keywords', [])
-            formatted_publication['references'] = formatted_publication.get('references', [])
+            # Parse references field from JSON string to list
+            references_json_str = formatted_publication.get('references', '[]')
+            formatted_publication['references'] = json.loads(references_json_str)
             result.append(formatted_publication)
 
         print(f"Formatted result: {result}")  # output: <class 'list'>
