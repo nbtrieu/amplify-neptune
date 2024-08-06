@@ -36,7 +36,7 @@ def handler(event, context):
             affiliations_json_str = formatted_publication.get('affiliations', [])
             formatted_publication['affiliations'] = json.loads(affiliations_json_str)
             keywords = formatted_publication.get('keywords', [])
-            formatted_publication['keywords'] = keywords if keywords is not None else []            
+            formatted_publication['keywords'] = keywords if isinstance(keywords, list) else []           
             references_json_str = formatted_publication.get('references', '[]')
             formatted_publication['references'] = json.loads(references_json_str)
             result.append(formatted_publication)
