@@ -81,7 +81,7 @@ type Publication {
   doi: String
   publication_date: String
   affiliations: [AuthorAffiliation]
-  abstract: [String]
+  abstract: String
   source_name: String
   volume: String
   issue: String
