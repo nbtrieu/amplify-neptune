@@ -9,6 +9,7 @@ import { NavBar } from './components';
 import KeywordSearchPage from './pages/KeywordSearchPage.js';
 import OrganizationSearchPage from './pages/OrganizationSearchPage.js';
 import NameSearchPage from './pages/NameSearchPage.js';
+import PublicationProductSearchPage from './pages/PublicationProductSearchPage.js';
 
 import '@aws-amplify/ui-react/styles.css';
 
@@ -30,6 +31,7 @@ function App() {
                 <Route path='/' element={<KeywordSearchPage />} />
                 <Route path='/organization' element={<OrganizationSearchPage />} />
                 <Route path='/name' element={<NameSearchPage />} />
+                <Route path='/publication-product' element={<PublicationProductSearchPage />} />
                 <Route path='/auth' element={<></>} />
               </Routes>
             </>

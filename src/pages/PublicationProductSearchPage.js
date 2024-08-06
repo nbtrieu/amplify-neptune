@@ -4,7 +4,7 @@ import { SearchProvider } from "../context/SearchContext";
 import { searchPublicationsByProduct } from '../graphql/queries';
 import publicationProductOptionsList from "../options/publicationProductOptions.js";
 
-export function ProductSearchPage() {
+export function PublicationProductSearchPage() {
     return (
         <SearchProvider>
             <SearchResultComponent
