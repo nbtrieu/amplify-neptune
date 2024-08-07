@@ -4,7 +4,7 @@ import { SearchProvider } from "../context/SearchContext";
 import { searchPublicationsByProduct } from '../graphql/queries';
 import publicationProductOptionsList from "../options/publicationProductOptions.js";
 
-export function PublicationProductSearchPage() {
+const PublicationProductSearchPage = () => {
     return (
         <SearchProvider>
             <SearchResultComponent
@@ -19,4 +19,6 @@ export function PublicationProductSearchPage() {
             />
         </SearchProvider>
     )
-}
+};
+
+export default PublicationProductSearchPage;
