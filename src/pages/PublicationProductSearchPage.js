@@ -1,7 +1,7 @@
 import React from 'react';
-import { SearchResultComponent } from '../components';
-import { SearchProvider } from "../context/SearchContext";
-import { searchPublicationsByProduct } from '../graphql/queries';
+import { SelectSearchBox, SearchResultComponent } from '../components/index.js';
+import { SearchProvider } from "../context/SearchContext.js";
+import { searchPublicationsByProduct } from '../graphql/queries.js';
 import publicationProductOptionsList from "../options/publicationProductOptions.js";
 
 const PublicationProductSearchPage = () => {
@@ -14,7 +14,7 @@ const PublicationProductSearchPage = () => {
                 variableKey: "product_name",
                 options: publicationProductOptionsList,
                 title: "Search by product",
-                description: "Find publications that mention:"
+                description: "Find all publications that mention:"
                 }}
             />
         </SearchProvider>
