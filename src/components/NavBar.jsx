@@ -44,7 +44,7 @@ const NavBar = ({ signOut }) => {
             Name
           </NavLink>
           <NavLink 
-            to="/product" 
+            to="/publication-product" 
             className={({ isActive }) => `nav-item ${isActive ? 'active-nav-item' : ''}`}
           >
             Product
