@@ -4,23 +4,30 @@
 export const searchPublicationsByProduct = /* GraphQL */ `
   query SearchPublicationsByProduct($product_name: String!) {
     searchPublicationsByProduct(product_name: $product_name) {
-      uuid
-      title
-      doi
-      publication_date
-      affiliations
       abstract
-      source_name
-      volume
-      issue
-      start_page
-      end_page
-      keywords
-      publication_type
+      affiliations {
+        affiliation
+        author
+        email
+        equal_contribution
+        first_author
+        second_author
+      }
       citations
-      references
-      url
+      doi
+      end_page
+      issue
+      keywords
       notes
+      publication_date
+      publication_type
+      references
+      source_name
+      start_page
+      title
+      url
+      uuid
+      volume
     }
   }
 `;
