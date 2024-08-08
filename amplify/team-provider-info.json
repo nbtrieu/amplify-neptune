@@ -18,33 +18,36 @@
       "function": {
         "persondbgremlin": {
           "deploymentBucketName": "amplify-persondb-dev-18584-deployment",
-          "s3Key": "amplify-builds/persondbgremlin-LambdaLayerVersiondc2c3b7f-build.zip"
+          "s3Key": "amplify-builds/persondbgremlin-LambdaLayerVersionc8342623-build.zip"
         },
         "getGraphData": {
           "deploymentBucketName": "amplify-persondb-dev-18584-deployment",
-          "s3Key": "amplify-builds/getGraphData-66353250566566755577-build.zip"
+          "s3Key": "amplify-builds/getGraphData-32655444757a48647a4e-build.zip"
         },
         "checkNodeProperties": {
           "deploymentBucketName": "amplify-persondb-dev-18584-deployment",
-          "s3Key": "amplify-builds/checkNodeProperties-786f7759634531474a7a-build.zip"
+          "s3Key": "amplify-builds/checkNodeProperties-4a386c4e4c4265474976-build.zip"
         },
         "getPeopleByKeyword": {
           "deploymentBucketName": "amplify-persondb-dev-18584-deployment",
-          "s3Key": "amplify-builds/getPeopleByKeyword-314c632b763253643353-build.zip"
+          "s3Key": "amplify-builds/getPeopleByKeyword-2b317a51644f626b3966-build.zip"
         },
         "getKeywordProperties": {
           "deploymentBucketName": "amplify-persondb-dev-18584-deployment",
-          "s3Key": "amplify-builds/getKeywordProperties-4b436e41636930613750-build.zip"
+          "s3Key": "amplify-builds/getKeywordProperties-685750777656442f6966-build.zip"
         },
         "getPeopleByOrganization": {
           "deploymentBucketName": "amplify-persondb-dev-18584-deployment",
-          "s3Key": "amplify-builds/getPeopleByOrganization-2f31634368616f365134-build.zip"
+          "s3Key": "amplify-builds/getPeopleByOrganization-413931545759614e3032-build.zip"
         },
         "getPersonByName": {
           "deploymentBucketName": "amplify-persondb-dev-18584-deployment",
-          "s3Key": "amplify-builds/getPersonByName-62456f57574141443147-build.zip"
+          "s3Key": "amplify-builds/getPersonByName-72414b4c764447473857-build.zip"
         },
-        "getPublicationsByProduct": {}
+        "getPublicationsByProduct": {
+          "deploymentBucketName": "amplify-persondb-dev-18584-deployment",
+          "s3Key": "amplify-builds/getPublicationsByProduct-76304b6b704e4f375248-build.zip"
+        }
       }
     }
   }

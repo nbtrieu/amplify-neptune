@@ -16,6 +16,7 @@ const SearchBox = ({ query, variableKey, options, title, description }) => {
     setIsLoading(true);
     setIsDataLoaded(false);
     const variables = { [variableKey]: value }; // Assign variables to easily log it
+    console.log('Executing query with variables:', variables);
 
     try {
       const client = generateClient();
@@ -23,6 +24,7 @@ const SearchBox = ({ query, variableKey, options, title, description }) => {
         query: query,
         variables: variables
       });
+      console.log('Query result:', result);
       setResults(result.data[Object.keys(result.data)[0]]); // Dynamically access the first property
     } catch (error) {
       console.error(`Error searching:`, error);

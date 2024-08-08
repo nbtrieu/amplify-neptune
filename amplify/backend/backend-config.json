@@ -282,6 +282,22 @@
         }
       ]
     },
+    "AMPLIFY_function_getPublicationsByProduct_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getPublicationsByProduct"
+        }
+      ]
+    },
+    "AMPLIFY_function_getPublicationsByProduct_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getPublicationsByProduct"
+        }
+      ]
+    },
     "AMPLIFY_function_persondbgremlin_deploymentBucketName": {
       "usedBy": [
         {
