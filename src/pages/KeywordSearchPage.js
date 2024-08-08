@@ -1,5 +1,5 @@
 import React from "react";
-import { SelectSearchBox, SearchResultComponent } from '../components';
+import { SelectSearchBox, SearchResultComponent, ResultsTable } from '../components';
 import { SearchProvider } from '../context/SearchContext.js';
 import { searchByKeyword } from "../graphql/queries.js";
 import keywordOptionsList from "../options/keywordOptions.js";
@@ -16,6 +16,7 @@ const KeywordSearchPage = () => {
           title: "Search by keyword",
           description: "Search for leads based on area of interests"
         }}
+        ResultsTableComponent={ResultsTable}
       />
     </SearchProvider>
   )

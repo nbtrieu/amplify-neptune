@@ -1,5 +1,5 @@
 import React from "react";
-import { SelectSearchBox, SearchResultComponent } from '../components';
+import { SelectSearchBox, SearchResultComponent, ResultsTable } from '../components';
 import { SearchProvider } from "../context/SearchContext";
 import { searchByOrganization } from '../graphql/queries';
 import organizationOptionsList from '../options/organizationOptions';
@@ -16,6 +16,7 @@ const OrganizationSearchPage = () => {
           title: "Search by organization",
           description: "Search for members of an organization"
         }}
+        ResultsTableComponent={ResultsTable}
       />
     </SearchProvider>
   );
