@@ -19,7 +19,7 @@ def handler(event, context):
 
         query_result = (
             g.V()
-            .has("publication_product", "name", product_name)
+            .has("publication_product", "display_name", product_name)
             .bothE()
             .outV()
             .hasLabel("publication")
