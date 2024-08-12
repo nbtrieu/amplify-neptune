@@ -37,23 +37,23 @@ const PublicationTable = () => {
                 <table>
                     <thead className="table-header">
                         <tr className="table-header">
-                            <th className="table-cell table-cell-uuid">UUID</th>
-                            <th className="table-cell table-cell-title">Title</th>
-                            <th className="table-cell table-cell-abstract">Abstract</th>
-                            <th className="table-cell table-cell-publication-date">Publication Date</th>
-                            <th className="table-cell table-cell-publication-type">Publication Type</th>
-                            <th className="table-cell table-cell-source-name">Source Name</th>
-                            <th className="table-cell table-cell-volume">Volume</th>
-                            <th className="table-cell table-cell-issue">Issue</th>
-                            <th className="table-cell table-cell-start-page">Start Page</th>
-                            <th className="table-cell table-cell-end-page">End Page</th>
-                            <th className="table-cell table-cell-doi">DOI</th>
-                            <th className="table-cell table-cell-url">URL</th>
-                            <th className="table-cell table-cell-citations">Citations</th>
-                            <th className="table-cell table-cell-keywords">Keywords</th>
-                            <th className="table-cell table-cell-notes">Notes</th>
-                            <th className="table-cell table-cell-references">References</th>
-                            <th className="table-cell table-cell-affiliations">Affiliations</th>
+                          <th className="table-cell table-cell-uuid">UUID</th>
+                          <th className="table-cell table-cell-title">TITLE</th>
+                          <th className="table-cell table-cell-abstract">ABSTRACT</th>
+                          <th className="table-cell table-cell-publication-date">PUBLICATION DATE</th>
+                          <th className="table-cell table-cell-publication-type">PUBLICATION TYPE</th>
+                          <th className="table-cell table-cell-source-name">SOURCE NAME</th>
+                          <th className="table-cell table-cell-volume">VOLUME</th>
+                          <th className="table-cell table-cell-issue">ISSUE</th>
+                          <th className="table-cell table-cell-start-page">START PAGE</th>
+                          <th className="table-cell table-cell-end-page">END PAGE</th>
+                          <th className="table-cell table-cell-doi">DOI</th>
+                          <th className="table-cell table-cell-url">URL</th>
+                          <th className="table-cell table-cell-citations">CITATIONS</th>
+                          <th className="table-cell table-cell-keywords">KEYWORDS</th>
+                          <th className="table-cell table-cell-notes">NOTES</th>
+                          <th className="table-cell table-cell-references">REFERENCES</th>
+                          <th className="table-cell table-cell-affiliations">AFFILIATIONS</th>
                         </tr>
                     </thead>
                     <tbody>
