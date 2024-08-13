@@ -20,6 +20,9 @@ const MUITable = ({ columns, rows, page, rowsPerPage, handleChangePage, handleCh
                   key={column.id}
                   align={column.align}
                   style={{ minWidth: column.minWidth }}
+                  sx={{
+										fontWeight: 'bold',
+                	}}
                 >
                   {column.label}
                 </TableCell>
