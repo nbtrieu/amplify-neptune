@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { SearchContext } from '../context/SearchContext';
 import CsvButton from './CsvButton';
 import MUITable from './MUITable';
+import BasicPopover from './BasicPopover';
 import { unparse } from 'papaparse';
 
 import '../index.css';
@@ -11,8 +12,6 @@ const PublicationTable = () => {
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
 
-    console.log("***Data retrieved for results table:", results);
-    
     if (!results || results.length === 0) {
         return <div className='no-results'>No results found.</div>;
     }
@@ -24,7 +23,20 @@ const PublicationTable = () => {
             id: 'affiliations',
             label: 'AFFILIATIONS',
             minWidth: 200,
-            format: (affiliations) => affiliations.join(', '),
+            format: (affiliations) => {
+                console.log('Affiliations:', affiliations);  // Debugging: Log the affiliations data
+                
+                const fullAuthors = Array.isArray(affiliations)
+                    ? affiliations.map(a => `${a.author}`).join(', ')
+                    : 'No affiliations available';
+
+                return (
+                    <BasicPopover
+                        preview={fullAuthors && fullAuthors < 5 ? `${fullAuthors.substring(0, 5)}...` : fullAuthors}
+                        fullText={fullAuthors}
+                    />
+                )
+            },
         },
         { id: 'publication_date', label: 'PUBLICATION DATE', minWidth: 170 },
         { id: 'publication_type', label: 'PUBLICATION TYPE', minWidth: 150 },
@@ -50,7 +62,7 @@ const PublicationTable = () => {
             id: 'keywords',
             label: 'KEYWORDS',
             minWidth: 200,
-            format: (keywords) => keywords.join(', '),
+            format: (keywords) => Array.isArray(keywords) ? keywords.join(', ') : 'No keywords available',
         },
         { id: 'notes', label: 'NOTES', minWidth: 200 },
         {
@@ -59,9 +71,10 @@ const PublicationTable = () => {
             minWidth: 300,
             align: 'left',
             format: (abstract) => (
-                <div style={{ maxWidth: '200px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                    {abstract}
-                </div>
+                <BasicPopover
+                    preview={abstract && abstract.length > 100 ? `${abstract.substring(0, 100)}...` : abstract}
+                    fullText={abstract}
+                />
             ),
         },
         {
@@ -69,10 +82,19 @@ const PublicationTable = () => {
             label: 'REFERENCES',
             minWidth: 300,
             align: 'left',
-            format: (references) => references.join('\n'),
+            format: (references) => (
+                <BasicPopover
+                    preview={
+                        Array.isArray(references) && references.length > 2
+                        ? `${references.slice(0, 2).join(', ')}...`
+                        : Array.isArray(references) ? references.join(', ') : 'No references available'
+                    }
+                    fullText={Array.isArray(references) ? references.join('\n') : 'No references available'}
+                />
+            ),
         },
     ];
-
+        
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
     };
@@ -106,8 +128,8 @@ const PublicationTable = () => {
                 columns={columns}
                 rows={results.map(result => ({
                     ...result,
-                    affiliations: result.affiliations.map(a => a.author).join(', '), // Convert affiliations to a string
-                    references: result.references.join('\n'), // Convert references to a string with line breaks
+                    // affiliations: result.affiliations.map(a => a.author).join(', '),
+                    references: result.references,  // references passed directly
                 }))}
                 page={page}
                 rowsPerPage={rowsPerPage}

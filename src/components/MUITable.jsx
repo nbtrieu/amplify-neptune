@@ -20,9 +20,7 @@ const MUITable = ({ columns, rows, page, rowsPerPage, handleChangePage, handleCh
                   key={column.id}
                   align={column.align}
                   style={{ minWidth: column.minWidth }}
-                  sx={{
-										fontWeight: 'bold',
-                	}}
+                  sx={{ fontWeight: 'bold' }}
                 >
                   {column.label}
                 </TableCell>
@@ -38,8 +36,8 @@ const MUITable = ({ columns, rows, page, rowsPerPage, handleChangePage, handleCh
                     const value = row[column.id];
                     return (
                       <TableCell key={column.id} align={column.align}>
-                        {column.format && typeof value === 'number'
-                          ? column.format(value)
+                        {column.format
+                          ? column.format(value)  // Directly apply the format function
                           : value}
                       </TableCell>
                     );
