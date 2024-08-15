@@ -17,7 +17,16 @@ const PublicationTable = () => {
     }
 
     const columns = [
-        { id: 'uuid', label: 'UUID', minWidth: 100 },
+        {
+            id: 'uuid',
+            label: 'UUID',
+            maxWidth: 80,
+            format: (uuid) => (
+                <div style={{ wordWrap: 'break-word', maxWidth: '100px', whiteSpace: 'normal' }}>
+                    {uuid}
+                </div>
+            ),
+        },
         { id: 'title', label: 'TITLE', minWidth: 170 },
         {
             id: 'affiliations',
