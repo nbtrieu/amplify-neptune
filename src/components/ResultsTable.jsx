@@ -18,7 +18,7 @@ const ResultsTable = () => {
     }
 
     const columns = [
-        { id: 'uuid', label: 'UUID', minWidth: 100 },
+        { id: 'uuid', label: 'UUID', minWidth: 200 },
         { id: 'customer_id', label: 'Customer ID', minWidth: 150 },
         { id: 'first_name', label: 'First Name', minWidth: 150 },
         { id: 'last_name', label: 'Last Name', minWidth: 150 },
