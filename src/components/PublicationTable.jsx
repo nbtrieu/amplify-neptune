@@ -32,7 +32,7 @@ const PublicationTable = () => {
 
                 return (
                     <BasicPopover
-                        preview={fullAuthors && fullAuthors < 5 ? `${fullAuthors.substring(0, 5)}...` : fullAuthors}
+                        preview={fullAuthors && fullAuthors.length > 100 ? `${fullAuthors.substring(0, 100)}...` : fullAuthors}
                         fullText={fullAuthors}
                     />
                 )
@@ -50,7 +50,7 @@ const PublicationTable = () => {
             id: 'url',
             label: 'URL',
             minWidth: 150,
-            align: 'center',
+            align: 'left',
             format: (url) => (
                 <a href={url} target="_blank" rel="noopener noreferrer">
                     {url}

@@ -18,7 +18,7 @@ export default function BasicPopover({ preview, fullText }) {
 
   return (
     <span>
-      <span onClick={handleClick} style={{ cursor: 'pointer', textDecoration: 'underline', color: 'blue' }}>
+      <span onClick={handleClick} style={{ cursor: 'pointer' }}>
         {preview}...
       </span>
       <Popover
