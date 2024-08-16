@@ -7,6 +7,7 @@ export { default as ResultsTable } from "./ResultsTable";
 export { default as PublicationTable } from "./PublicationTable";
 export { default as SearchResultComponent } from "./SearchResultComponent";
 export { default as SelectSearchBox } from "./SelectSearchBox";
+export { default as DoubleSearchBox } from "./DoubleSearchBox";
 export { default as SearchInput } from "./SearchInput";
 export { default as NameSearchBox } from "./NameSearchBox";
 export { default as DynamicSearchBox } from "./DynamicSearchBox";

@@ -114,35 +114,6 @@ table {
   overflow-y: auto;
 }
 
-.tooltip {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-}
-
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 300px;
-  background-color: #f9f9f9;
-  color: #000;
-  text-align: left;
-  border-radius: 6px;
-  padding: 10px;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%; /* Adjusted to ensure it appears above the text */
-  left: 50%;
-  margin-left: -150px; /* Adjusted for tooltip width */
-  opacity: 0; /* Initially invisible */
-  transition: opacity 0.3s; /* Smooth fade-in */
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Shadow for better visibility */
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1; /* Fade-in effect */
-}
-
 .button {
   background-color: var(--green);
   border: none;
@@ -236,7 +207,7 @@ table {
   align-items: center;
   padding: 80px 20px 0px 20px;
   margin: auto;
-  width: 50%;
+  width: 60%;
 }
 
 .searchbox-title {
@@ -258,6 +229,13 @@ table {
   margin-bottom: 20px;
   justify-content: center;
   width: 100%;
+}
+
+.dropdown-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
 }
 
 .searchbox-select-input {

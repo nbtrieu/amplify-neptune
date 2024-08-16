@@ -4,7 +4,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
 
-function SearchableDropdown({ options, value, onChange }) {
+function SearchableDropdown({ options, value, onChange, width = 400, variant = "standard", showSearchIcon = true }) {
     const handleKeyDown = (event) => {
         if (event.key === 'Enter') {
             event.preventDefault(); // Prevent the default action to avoid submitting the form traditionally
@@ -28,9 +28,9 @@ function SearchableDropdown({ options, value, onChange }) {
                 }
             }}
             sx={{
-                width: 400,
+                width: width,
                 '& .MuiAutocomplete-option': {
-                    height: '36px', // Ensure this is a string with 'px' to enforce CSS correctly
+                    height: '36px',
                     paddingTop: 0,
                     paddingBottom: 0,
                 },
@@ -42,14 +42,14 @@ function SearchableDropdown({ options, value, onChange }) {
             renderInput={(params) => (
                 <TextField 
                     {...params} 
-                    variant="standard"
+                    variant={variant}
                     InputProps={{
                         ...params.InputProps,
-                        startAdornment: (
+                        startAdornment: showSearchIcon ? (
                             <InputAdornment position="start">
                                 <SearchIcon />
                             </InputAdornment>
-                        ),
+                        ) : null,
                     }}
                 />
             )}

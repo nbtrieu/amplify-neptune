@@ -49,6 +49,12 @@ const NavBar = ({ signOut }) => {
           >
             Product
           </NavLink>
+          <NavLink 
+            to="/combined-keyword" 
+            className={({ isActive }) => `nav-item ${isActive ? 'active-nav-item' : ''}`}
+          >
+            Keyword (beta)
+          </NavLink>
         </div>
         <Box sx={{ flexGrow: 0 }}>
           <Tooltip title="Open settings">
