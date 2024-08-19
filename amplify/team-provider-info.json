@@ -18,7 +18,7 @@
       "function": {
         "persondbgremlin": {
           "deploymentBucketName": "amplify-persondb-dev-18584-deployment",
-          "s3Key": "amplify-builds/persondbgremlin-LambdaLayerVersionc8342623-build.zip"
+          "s3Key": "amplify-builds/persondbgremlin-LambdaLayerVersione5fd1363-build.zip"
         },
         "getGraphData": {
           "deploymentBucketName": "amplify-persondb-dev-18584-deployment",
@@ -46,7 +46,7 @@
         },
         "getPublicationsByProduct": {
           "deploymentBucketName": "amplify-persondb-dev-18584-deployment",
-          "s3Key": "amplify-builds/getPublicationsByProduct-76304b6b704e4f375248-build.zip"
+          "s3Key": "amplify-builds/getPublicationsByProduct-2f6845516b56525a7778-build.zip"
         }
       }
     }
