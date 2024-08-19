@@ -1,17 +1,14 @@
-import React, { useState, useContext, useCallback, useEffect } from 'react';
+import React, { useState, useContext, useCallback } from 'react';
 import { SearchContext } from '../context/SearchContext';
 import { generateClient } from 'aws-amplify/api';
 import SearchableDropdown from './SearchableDropdown';
 import { CircularProgress } from '@mui/material';
 
-const DoubleSearchBox = ({ query, nodeTypeOptions, keywordOptions, title }) => {
-  console.log("Props received:", { query, nodeTypeOptions, keywordOptions, title });
-
+const DoubleSearchBox = ({ queryMap, nodeTypeOptions, keywordOptions, title }) => {
   const { setResults, setIsDataLoaded } = useContext(SearchContext);
-  const [selectedNodeType, setSelectedNodeType] = useState('');
-  const [selectedKeyword, setSelectedKeyword] = useState('');
+  const [selectedNodeType, setSelectedNodeType] = useState(''); // Default to blank
+  const [selectedKeyword, setSelectedKeyword] = useState(''); // Default to blank
   const [isLoading, setIsLoading] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = useCallback(async () => {
     if (!selectedNodeType || !selectedKeyword) {
@@ -20,34 +17,34 @@ const DoubleSearchBox = ({ query, nodeTypeOptions, keywordOptions, title }) => {
 
     setIsLoading(true);
     setIsDataLoaded(false);
-    const variables = { nodeType: selectedNodeType, keyword: selectedKeyword };
-    console.log('Executing query with variables:', variables);
 
+    const query = queryMap[selectedNodeType];
+    if (!query) {
+      console.error(`No query found for node type: ${selectedNodeType}`);
+      return;
+    }
+    const variables = { keyword: selectedKeyword };
+    
     try {
       const client = generateClient();
       const result = await client.graphql({
         query: query,
         variables: variables
       });
-      console.log('Query result:', result);
-      setResults(result.data[Object.keys(result.data)[0]]); // Dynamically access the first property
+      setResults(result.data[Object.keys(result.data)[0]]);
     } catch (error) {
       console.error(`Error searching:`, error);
     } finally {
       setIsLoading(false);
       setIsDataLoaded(true);
     }
-  }, [selectedNodeType, selectedKeyword, query, setIsDataLoaded, setResults]);
+  }, [selectedNodeType, selectedKeyword, queryMap, setIsDataLoaded, setResults]);
 
-  useEffect(() => {
-    if (isSubmitted) {
-      handleSubmit();
+  const handleDropdownChange = (setter, option) => {
+    setter(option.value); // Set the value for the selected option
+    if (setter === setSelectedKeyword) {
+      handleSubmit(); // Automatically submit the form when the keyword is selected
     }
-  }, [selectedNodeType, selectedKeyword, isSubmitted, handleSubmit]);
-
-  const handleDropdownChange = (setter, value) => {
-    setter(value);
-    setIsSubmitted(true); // Set the form as submitted when a dropdown value changes
   };
 
   return (
@@ -57,24 +54,26 @@ const DoubleSearchBox = ({ query, nodeTypeOptions, keywordOptions, title }) => {
         <CircularProgress />
       ) : (
         <div style={{ display: 'flex', gap: '10px' }}>
-          <div className='dropdown-container' >
-						<span className='searchbox-description mt-3'> Find </span>
-						<SearchableDropdown 
-							options={nodeTypeOptions} 
-							value={selectedNodeType} 
-							onChange={(value) => handleDropdownChange(setSelectedNodeType, value)}
-							width={210}
-							showSearchIcon={false}
-						/>
-						<span className='searchbox-description mt-3'> related to </span>
-						<SearchableDropdown 
-							options={keywordOptions} 
-							value={selectedKeyword} 
-							onChange={(value) => handleDropdownChange(setSelectedKeyword, value)}
-							width={300}
-							showSearchIcon={false}
-						/>
-					</div>
+          <div className='dropdown-container'>
+            <span className='searchbox-description mt-3'> Find </span>
+            <SearchableDropdown 
+              options={nodeTypeOptions} 
+              value={selectedNodeType ? nodeTypeOptions.find(option => option.value === selectedNodeType) : null} 
+              onChange={(option) => handleDropdownChange(setSelectedNodeType, option)}
+              width={210}
+              showSearchIcon={false}
+              isOptionEqualToValue={(option, value) => option.value === value.value}
+            />
+            <span className='searchbox-description mt-3'> related to </span>
+            <SearchableDropdown 
+              options={keywordOptions} 
+              value={selectedKeyword ? keywordOptions.find(option => option.value === selectedKeyword) : null}
+              onChange={(option) => handleDropdownChange(setSelectedKeyword, option)}
+              width={300}
+              showSearchIcon={false}
+              isOptionEqualToValue={(option, value) => option.value === value.value}
+            />
+          </div>
         </div>
       )}
     </div>

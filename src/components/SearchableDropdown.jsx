@@ -27,6 +27,7 @@ function SearchableDropdown({ options, value, onChange, width = 400, variant = "
                     overflow: 'auto' // Adds a scrollbar when content exceeds the max height
                 }
             }}
+            isOptionEqualToValue={(option, value) => option.value === value.value} // Ensure equality check
             sx={{
                 width: width,
                 '& .MuiAutocomplete-option': {

@@ -12,15 +12,23 @@ const CombinedKeywordSearchPage = () => {
     { value: 'zymo_product', label: 'Zymo products' },
     { value: 'publication_product', label: 'publication products' }
   ];
+
+	const queryMap = {
+    person: searchByKeyword,
+    organization: searchByKeyword,
+    publication: searchByKeyword,
+    zymo_product: searchByKeyword,
+    publication_product: searchByKeyword
+  };
 	
 	return (
 		<SearchProvider>
 			<SearchResultComponent 
 				SearchBoxComponent={DoubleSearchBox}
 				searchProps={{
-					query: searchByKeyword, // to be replaced with the new lambda-linked graphql query
-					nodeTypeOptions: nodeTypeOptions,
-					keywordOptions: keywordOptionsList.map(keyword => ({ value: keyword, label: keyword })),
+					queryMap: queryMap,  // Pass the entire queryMap
+          nodeTypeOptions: nodeTypeOptions,
+          keywordOptions: keywordOptionsList.map(keyword => ({ value: keyword, label: keyword })),
           title: "Search any node type by keyword"
 				}}
 				ResultsTableComponent={ResultsTable}
