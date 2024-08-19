@@ -21,7 +21,7 @@ const CombinedKeywordSearchPage = () => {
 					query: searchByKeyword, // to be replaced with the new lambda-linked graphql query
 					nodeTypeOptions: nodeTypeOptions,
 					keywordOptions: keywordOptionsList.map(keyword => ({ value: keyword, label: keyword })),
-          			title: "Search any node types by keyword"
+          title: "Search any node type by keyword"
 				}}
 				ResultsTableComponent={ResultsTable}
 			/>
