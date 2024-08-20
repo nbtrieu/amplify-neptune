@@ -58,6 +58,21 @@ type NeptunePerson {
   data_source: String
 }
 
+type NeptuneOrganization {
+  uuid: String!
+  name: String
+  display_name: String
+  industry: String
+  description: String
+  location: String
+  mailing_address: String
+  website: String
+  domain: String
+  linkedin_url: String
+  specialties: String
+  size: String
+}
+
 type PublicationProduct {
   uuid: String!
   url: String

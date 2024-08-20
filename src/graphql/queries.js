@@ -1,6 +1,25 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const searchOrganizationsByKeyword = /* GraphQL */ `
+  query SearchOrganizationsByKeyword($keyword: String!) {
+    searchOrganizationsByKeyword(keyword: $keyword) {
+      uuid
+      name
+      display_name
+      industry
+      description
+      location
+      mailing_address
+      website
+      domain
+      linkedin_url
+      specialties
+      size
+    }
+  }
+`
+
 export const searchPublicationsByProduct = /* GraphQL */ `
   query SearchPublicationsByProduct($product_name: String!) {
     searchPublicationsByProduct(product_name: $product_name) {
