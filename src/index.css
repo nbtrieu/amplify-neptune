@@ -236,6 +236,7 @@ table {
   align-items: center;
   justify-content: center;
   gap: 15px;
+  margin-bottom: -20px;
 }
 
 .searchbox-select-input {

@@ -53,7 +53,7 @@ const DoubleSearchBox = ({ queryMap, nodeTypeOptions, keywordOptions, title }) =
       {isLoading ? (
         <CircularProgress />
       ) : (
-        <div style={{ display: 'flex', gap: '10px' }}>
+        <div style={{ display: 'flex' }}>
           <div className='dropdown-container'>
             <span className='searchbox-description mt-3'> Find </span>
             <SearchableDropdown 

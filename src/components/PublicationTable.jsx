@@ -127,7 +127,7 @@ const PublicationTable = () => {
 
     return (
         <div className="results-container">
-            <div className="results-info">
+            <div className="results-info mb-3">
                 <div>{`${results.length} results found.`}</div>
                 <div className="csv-button-container">
                     <CsvButton onClick={downloadCsv} />
