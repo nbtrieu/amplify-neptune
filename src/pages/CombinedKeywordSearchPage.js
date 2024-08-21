@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { DoubleSearchBox, SearchResultComponent, ResultsTable, PublicationTable } from "../components";
 import { SearchProvider } from "../context/SearchContext";
-import { searchByKeyword, searchOrganizationsByKeyword } from "../graphql/queries.js";
+import { searchByKeyword, searchOrganizationsByKeyword, searchPublicationsByKeyword } from "../graphql/queries.js";
 import keywordOptionsList from "../options/keywordOptions.js";
 
 const CombinedKeywordSearchPage = () => {
@@ -18,7 +18,7 @@ const CombinedKeywordSearchPage = () => {
 	const queryMap = {
     person: searchByKeyword,
     organization: searchOrganizationsByKeyword,
-    publication: searchByKeyword,
+    publication: searchPublicationsByKeyword,
     zymo_product: searchByKeyword,
     publication_product: searchByKeyword
   };

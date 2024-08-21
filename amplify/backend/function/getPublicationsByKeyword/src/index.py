@@ -30,9 +30,15 @@ def handler(event, context):
         print(f"Query result: {query_result}")
 
         result = []
-        for person in query_result:
-            formatted_person = {k: v[0] if v else None for k, v in person.items()}  # so that each field should have a single str value instead of list
-            result.append(formatted_person)
+        for publication in query_result:
+            formatted_publication = {k: v[0] if isinstance(v, list) and len(v) == 1 else v for k, v in publication.items()}
+            affiliations_json_str = formatted_publication.get('affiliations', [])
+            formatted_publication['affiliations'] = json.loads(affiliations_json_str)
+            keywords = formatted_publication.get('keywords', [])
+            formatted_publication['keywords'] = keywords if isinstance(keywords, list) else []           
+            references_json_str = formatted_publication.get('references', '[]')
+            formatted_publication['references'] = json.loads(references_json_str)
+            result.append(formatted_publication)
 
         print(f"Formatted result: {result}")  # output: <class 'list'>
         print(type(result))
