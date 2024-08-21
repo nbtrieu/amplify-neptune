@@ -41,11 +41,11 @@ def handler(event, context):
             formatted_publication['references'] = json.loads(references_json_str)
             result.append(formatted_publication)
 
-        print(f"Formatted result: {result}")  # output: <class 'list'>
+        print(f"Formatted result: {result}")
         print(type(result))
 
         return result
 
     except Exception as e:
-        print(f"An error occurred: {str(e)}")  # Error logging
+        print(f"An error occurred: {str(e)}")
         return {'error': 'An error occurred while processing your request.'}
