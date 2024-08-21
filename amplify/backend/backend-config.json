@@ -179,6 +179,29 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
+    "getPublicationProductsByKeyword": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ],
+          "category": "api",
+          "resourceName": "neptune"
+        },
+        {
+          "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "persondbgremlin"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "getPublicationsByKeyword": {
       "build": true,
       "dependsOn": [

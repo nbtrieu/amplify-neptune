@@ -20,10 +20,10 @@ def handler(event, context):
         query_result = (
             g.V()
             .has("keyword", "name", keyword)
-            .in_("interested_in")
-            .hasLabel("person")
-            .in_("affiliated_with")
-            .hasLabel("organization")
+            .in_("relates_to")
+            .hasLabel("publication")
+            .out("mentions")
+            .hasLabel("publication_product")
             .valueMap()
             .dedup()
             .toList()
@@ -31,9 +31,9 @@ def handler(event, context):
         print(f"Query result: {query_result}")
 
         result = []
-        for organization in query_result:
-            formatted_organization = {k: v[0] if v else None for k, v in organization.items()}  # so that each field should have a single str value instead of list
-            result.append(formatted_organization)
+        for publication_product in query_result:
+            formatted_publication_product = {k: v[0] if v else None for k, v in publication_product.items()}  # so that each field should have a single str value instead of list
+            result.append(formatted_publication_product)
 
         print(f"Formatted result: {result}")  # output: <class 'list'>
         print(type(result))
