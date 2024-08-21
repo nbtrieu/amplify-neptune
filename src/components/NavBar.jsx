@@ -53,7 +53,7 @@ const NavBar = ({ signOut }) => {
             to="/combined-keyword" 
             className={({ isActive }) => `nav-item ${isActive ? 'active-nav-item' : ''}`}
           >
-            Keyword (beta)
+            All Nodes
           </NavLink>
         </div>
         <Box sx={{ flexGrow: 0 }}>
