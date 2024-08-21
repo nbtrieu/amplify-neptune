@@ -48,7 +48,8 @@
           "deploymentBucketName": "amplify-persondb-dev-18584-deployment",
           "s3Key": "amplify-builds/getPublicationsByProduct-2f6845516b56525a7778-build.zip"
         },
-        "getOrganizationsByKeyword": {}
+        "getOrganizationsByKeyword": {},
+        "getPublicationsByKeyword": {}
       }
     }
   }
