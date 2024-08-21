@@ -112,6 +112,7 @@ type Publication {
 
 type Query {
   searchOrganizationsByKeyword(keyword: String!): [NeptuneOrganization]
+  searchPublicationsByKeyword(keyword: String!): [Publication]
   searchPublicationsByProduct(product_name: String!): [Publication]
   searchByKeyword(keyword: String!): [NeptunePerson]
   searchByOrganization(organization: String!): [NeptunePerson]

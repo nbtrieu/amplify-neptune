@@ -4,7 +4,7 @@ import { generateClient } from 'aws-amplify/api';
 import SearchableDropdown from './SearchableDropdown';
 import { CircularProgress } from '@mui/material';
 
-const DoubleSearchBox = ({ queryMap, nodeTypeOptions, keywordOptions, title }) => {
+const DoubleSearchBox = ({ queryMap, nodeTypeOptions, keywordOptions, title, onNodeTypeChange }) => { // Add onNodeTypeChange prop
   const { setResults, setIsDataLoaded } = useContext(SearchContext);
   const [selectedNodeType, setSelectedNodeType] = useState(''); // Default to blank
   const [selectedKeyword, setSelectedKeyword] = useState(''); // Default to blank
@@ -42,6 +42,9 @@ const DoubleSearchBox = ({ queryMap, nodeTypeOptions, keywordOptions, title }) =
 
   const handleDropdownChange = (setter, option) => {
     setter(option.value); // Set the value for the selected option
+    if (setter === setSelectedNodeType && onNodeTypeChange) {
+      onNodeTypeChange(option.value); // Notify the parent of the selected node type change
+    }
     if (setter === setSelectedKeyword) {
       handleSubmit(); // Automatically submit the form when the keyword is selected
     }

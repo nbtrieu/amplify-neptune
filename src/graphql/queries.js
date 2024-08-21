@@ -20,6 +20,37 @@ export const searchOrganizationsByKeyword = /* GraphQL */ `
   }
 `
 
+export const searchPublicationsByKeyword = /* GraphQL */ `
+  query SearchPublicationsByKeyword($keyword: String!) {
+    searchPublicationsByKeyword(keyword: $keyword) {
+      abstract
+      affiliations {
+        affiliation
+        author
+        email
+        equal_contribution
+        first_author
+        second_author
+      }
+      citations
+      doi
+      end_page
+      issue
+      keywords
+      notes
+      publication_date
+      publication_type
+      references
+      source_name
+      start_page
+      title
+      url
+      uuid
+      volume
+    }
+  }
+`;
+
 export const searchPublicationsByProduct = /* GraphQL */ `
   query SearchPublicationsByProduct($product_name: String!) {
     searchPublicationsByProduct(product_name: $product_name) {

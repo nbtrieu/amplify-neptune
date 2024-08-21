@@ -1,10 +1,12 @@
-import React from "react";
-import { DoubleSearchBox, SearchResultComponent, ResultsTable } from "../components";
+import React, { useState } from "react";
+import { DoubleSearchBox, SearchResultComponent, ResultsTable, PublicationTable } from "../components";
 import { SearchProvider } from "../context/SearchContext";
 import { searchByKeyword, searchOrganizationsByKeyword } from "../graphql/queries.js";
 import keywordOptionsList from "../options/keywordOptions.js";
 
 const CombinedKeywordSearchPage = () => {
+  const [selectedNodeType, setSelectedNodeType] = useState('');
+
   const nodeTypeOptions = [
     { value: 'person', label: 'people' },
     { value: 'organization', label: 'organizations' },
@@ -20,6 +22,10 @@ const CombinedKeywordSearchPage = () => {
     zymo_product: searchByKeyword,
     publication_product: searchByKeyword
   };
+
+  const handleNodeTypeChange = (value) => {
+    setSelectedNodeType(value);
+  };
 	
 	return (
 		<SearchProvider>
@@ -29,9 +35,10 @@ const CombinedKeywordSearchPage = () => {
 					queryMap: queryMap,  // Pass the entire queryMap
           nodeTypeOptions: nodeTypeOptions,
           keywordOptions: keywordOptionsList.map(keyword => ({ value: keyword, label: keyword })),
-          title: "Search any node type by keyword"
+          title: "Search any node type by keyword",
+          onNodeTypeChange: handleNodeTypeChange
 				}}
-				ResultsTableComponent={ResultsTable}
+				ResultsTableComponent={selectedNodeType == 'publication' ? PublicationTable : ResultsTable}
 			/>
 		</SearchProvider>
 	)
