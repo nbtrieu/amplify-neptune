@@ -75,10 +75,10 @@ type NeptuneOrganization {
 
 type PublicationProduct {
   uuid: String!
-  url: String
-  doi: String
   name: String
+  display_name: String
   company: String
+  publications: String
 }
 
 type AuthorAffiliation {
@@ -113,6 +113,7 @@ type Publication {
 type Query {
   searchOrganizationsByKeyword(keyword: String!): [NeptuneOrganization]
   searchPublicationsByKeyword(keyword: String!): [Publication]
+  searchPublicationProductsByKeyword(keyword: String!): [PublicationProduct]
   searchPublicationsByProduct(product_name: String!): [Publication]
   searchByKeyword(keyword: String!): [NeptunePerson]
   searchByOrganization(organization: String!): [NeptunePerson]
