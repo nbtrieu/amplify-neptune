@@ -20,7 +20,7 @@ def handler(event, context):
 
         query_result = (
             g.V()
-            .has("organization", "name", organization)
+            .has("organization", "display_name", organization)
             .bothE()
             .inV()
             .hasLabel("person")
