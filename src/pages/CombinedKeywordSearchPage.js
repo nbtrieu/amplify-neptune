@@ -38,7 +38,7 @@ const CombinedKeywordSearchPage = () => {
           title: "Search any node type by keyword",
           onNodeTypeChange: handleNodeTypeChange
 				}}
-				ResultsTableComponent={selectedNodeType == 'publication' ? PublicationTable : ResultsTable}
+				ResultsTableComponent={selectedNodeType === 'publication' ? PublicationTable : ResultsTable}
 			/>
 		</SearchProvider>
 	)

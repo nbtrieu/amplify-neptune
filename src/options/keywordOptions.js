@@ -4,7 +4,7 @@ const keywordOptionsList = [
   'collaboration with zymo for Hamilton', 'Plasmid', 'Plasmid Purification', 
   'Aging', 'General', 'Proteins & Enzymes', 'Assay Development', 'DNA', 'regulatory', 
   'DNA Purification', 'Other', 'RNA Purification', 'Epigenetics/NGS/RNA-Seq', 
-  'Sample Collection', 'Plamid', 'Assays', 'Microbiomics', 'Services', 'pk supply', 'Zymo Research'
+  'Sample Collection', 'Plamid', 'Assays', 'Microbiomics', 'Services', 'pk supply', 'Zymo Research', 'Lead Scores'
 ];
   
 export default keywordOptionsList;
