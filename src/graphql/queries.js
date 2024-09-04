@@ -120,6 +120,18 @@ export const searchByKeyword = /* GraphQL */ `
       status
       ingestion_tag
       data_source
+      number_of_cases
+      score_case
+      quantity
+      sales
+      number_of_orders
+      score_sales
+      score_total
+      rank
+      cases_tier
+      sales_tier
+      message_tier
+      orders_tier
       __typename
     }
   }
@@ -151,6 +163,18 @@ export const searchByOrganization = /* GraphQL */ `
       status
       ingestion_tag
       data_source
+      number_of_cases
+      score_case
+      quantity
+      sales
+      number_of_orders
+      score_sales
+      score_total
+      rank
+      cases_tier
+      sales_tier
+      message_tier
+      orders_tier
       __typename
     }
   }
@@ -182,6 +206,18 @@ export const searchByName = /* GraphQL */ `
       status
       ingestion_tag
       data_source
+      number_of_cases
+      score_case
+      quantity
+      sales
+      number_of_orders
+      score_sales
+      score_total
+      rank
+      cases_tier
+      sales_tier
+      message_tier
+      orders_tier
       __typename
     }
   }

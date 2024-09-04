@@ -56,6 +56,18 @@ type NeptunePerson {
   status: String
   ingestion_tag: String
   data_source: String
+  number_of_cases: Int
+  score_case: Float
+  quantity: Int
+  sales: Float
+  number_of_orders: Int
+  score_sales: Float
+  score_total: Float
+  rank: Int
+  cases_tier: String
+  sales_tier: String
+  message_tier: String
+  orders_tier: String
 }
 
 type NeptuneOrganization {
