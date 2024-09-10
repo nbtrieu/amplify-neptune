@@ -1,6 +1,40 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const searchMarketingCampaignsByKeyword = /* GraphQL */ `
+  query SearchMarketingCampaignsByKeyword($keyword: String!) {
+    searchMarketingCampaignsByKeyword(keyword: $keyword) {
+      uuid
+      name
+      tags
+      subject
+      list
+      send_time
+      send_weekday
+      total_recipients
+      unique_placed_order
+      placed_order_rate
+      revenue
+      unique_opens
+      open_rate
+      total_opens
+      unique_clicks
+      click_rate
+      total_clicks
+      unsubscribes
+      spam_complaints
+      spam_complaints_rate
+      successful_deliveries
+      bounces
+      bounce_rate
+      campaign_id
+      campaign_channel
+      ingestion_tag
+      data_source
+    }
+  }
+`
+
 export const searchPublicationProductsByKeyword = /* GraphQL */ `
   query SearchPublicationProductsByKeyword($keyword: String!) {
     searchPublicationProductsByKeyword(keyword: $keyword) {

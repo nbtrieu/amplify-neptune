@@ -122,10 +122,42 @@ type Publication {
   notes: String
 }
 
+type MarketingCampaign {
+  uuid: String!
+  name: String
+  tags: String
+  subject: String
+  list: String
+  send_time: String  # ISO 8601 datetime as string
+  send_weekday: String
+  total_recipients: Int
+  unique_placed_order: Int
+  placed_order_rate: String  # percentage as string
+  revenue: Float
+  unique_opens: Int
+  open_rate: String  # percentage as string
+  total_opens: Int
+  unique_clicks: Int
+  click_rate: String  # percentage as string
+  total_clicks: Int
+  unsubscribes: Int
+  spam_complaints: Int
+  spam_complaints_rate: String  # percentage as string
+  successful_deliveries: Int
+  bounces: Int
+  bounce_rate: String  # percentage as string
+  campaign_id: String
+  campaign_channel: String
+  ingestion_tag: String
+  data_source: String
+}
+
+
 type Query {
   searchOrganizationsByKeyword(keyword: String!): [NeptuneOrganization]
   searchPublicationsByKeyword(keyword: String!): [Publication]
   searchPublicationProductsByKeyword(keyword: String!): [PublicationProduct]
+  searchMarketingCampaignsByKeyword(keyword: String!): [MarketingCampaign]
   searchPublicationsByProduct(product_name: String!): [Publication]
   searchByKeyword(keyword: String!): [NeptunePerson]
   searchByOrganization(organization: String!): [NeptunePerson]
