@@ -10,7 +10,7 @@ const ResultsTable = () => {
     const { results } = useContext(SearchContext);
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
-
+    
     console.log("***Data retrieved for results table:", results);
     
     if (!results || results.length === 0) {

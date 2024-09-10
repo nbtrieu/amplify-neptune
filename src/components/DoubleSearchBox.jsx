@@ -14,6 +14,8 @@ const DoubleSearchBox = ({ queryMap, nodeTypeOptions, keywordOptions, title, onN
     if (!selectedNodeType || !selectedKeyword) {
       return;
     }
+    
+    console.log("Selected keyword:", selectedKeyword);
 
     setIsLoading(true);
     setIsDataLoaded(false);
