@@ -10,19 +10,21 @@ const ResultsTable = () => {
     const { results } = useContext(SearchContext);
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
-    
+
     console.log("***Data retrieved for results table:", results);
-    
+
     if (!results || results.length === 0) {
         return <div className='no-results'>No results found.</div>;
     }
 
-    // Dynamically generate columns based on the keys of the first result
-    const columns = Object.keys(results[0]).map(key => ({
-        id: key,
-        label: key.replace(/_/g, ' ').toUpperCase(),
-        minWidth: 150
-    }));
+    // Filter out columns where all rows have no value (null, undefined, or empty string)
+    const columns = Object.keys(results[0])
+        .filter(key => results.some(result => result[key] !== null && result[key] !== undefined && result[key] !== ''))
+        .map(key => ({
+            id: key,
+            label: key.replace(/_/g, ' ').toUpperCase(),
+            minWidth: 150
+        }));
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);

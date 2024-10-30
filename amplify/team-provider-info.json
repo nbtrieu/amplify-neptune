@@ -51,7 +51,8 @@
         "getOrganizationsByKeyword": {},
         "getPublicationsByKeyword": {},
         "getPublicationProductsByKeyword": {},
-        "getMarketingCampaignsByKeyword": {}
+        "getMarketingCampaignsByKeyword": {},
+        "getZymoWebProducts": {}
       }
     }
   }
