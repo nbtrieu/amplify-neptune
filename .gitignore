@@ -8,6 +8,10 @@ config.json
 
 # .telemetry
 
+# Unignore the Pipfile and all files in the function directory
+!amplify/backend/function/persondbgremlin/lib/python/Pipfile
+!amplify/backend/function/persondbgremlin/lib/python/**
+
 # ignore potentially sensitive credentials files
 # conf/**/*credentials*
 
