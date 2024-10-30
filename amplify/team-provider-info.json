@@ -18,7 +18,7 @@
       "function": {
         "persondbgremlin": {
           "deploymentBucketName": "amplify-persondb-dev-18584-deployment",
-          "s3Key": "amplify-builds/persondbgremlin-LambdaLayerVersione5fd1363-build.zip"
+          "s3Key": "amplify-builds/persondbgremlin-LambdaLayerVersion4e7ef91b-build.zip"
         },
         "getGraphData": {
           "deploymentBucketName": "amplify-persondb-dev-18584-deployment",
@@ -38,7 +38,7 @@
         },
         "getPeopleByOrganization": {
           "deploymentBucketName": "amplify-persondb-dev-18584-deployment",
-          "s3Key": "amplify-builds/getPeopleByOrganization-413931545759614e3032-build.zip"
+          "s3Key": "amplify-builds/getPeopleByOrganization-3659474b6b7048387559-build.zip"
         },
         "getPersonByName": {
           "deploymentBucketName": "amplify-persondb-dev-18584-deployment",
@@ -48,10 +48,22 @@
           "deploymentBucketName": "amplify-persondb-dev-18584-deployment",
           "s3Key": "amplify-builds/getPublicationsByProduct-2f6845516b56525a7778-build.zip"
         },
-        "getOrganizationsByKeyword": {},
-        "getPublicationsByKeyword": {},
-        "getPublicationProductsByKeyword": {},
-        "getMarketingCampaignsByKeyword": {},
+        "getOrganizationsByKeyword": {
+          "deploymentBucketName": "amplify-persondb-dev-18584-deployment",
+          "s3Key": "amplify-builds/getOrganizationsByKeyword-366a746f735156387254-build.zip"
+        },
+        "getPublicationsByKeyword": {
+          "deploymentBucketName": "amplify-persondb-dev-18584-deployment",
+          "s3Key": "amplify-builds/getPublicationsByKeyword-49646d2f6549394a516d-build.zip"
+        },
+        "getPublicationProductsByKeyword": {
+          "deploymentBucketName": "amplify-persondb-dev-18584-deployment",
+          "s3Key": "amplify-builds/getPublicationProductsByKeyword-34393474354642566372-build.zip"
+        },
+        "getMarketingCampaignsByKeyword": {
+          "deploymentBucketName": "amplify-persondb-dev-18584-deployment",
+          "s3Key": "amplify-builds/getMarketingCampaignsByKeyword-77757130482b4d747647-build.zip"
+        },
         "getZymoWebProducts": {}
       }
     }

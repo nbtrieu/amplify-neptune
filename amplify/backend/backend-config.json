@@ -271,29 +271,6 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
-    "getZymoWebProducts": {
-      "build": true,
-      "dependsOn": [
-        {
-          "attributes": [
-            "GraphQLAPIIdOutput",
-            "GraphQLAPIEndpointOutput",
-            "GraphQLAPIKeyOutput"
-          ],
-          "category": "api",
-          "resourceName": "neptune"
-        },
-        {
-          "attributes": [
-            "Arn"
-          ],
-          "category": "function",
-          "resourceName": "persondbgremlin"
-        }
-      ],
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
     "persondbgremlin": {
       "build": true,
       "providerPlugin": "awscloudformation",
@@ -349,6 +326,38 @@
         }
       ]
     },
+    "AMPLIFY_function_getMarketingCampaignsByKeyword_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getMarketingCampaignsByKeyword"
+        }
+      ]
+    },
+    "AMPLIFY_function_getMarketingCampaignsByKeyword_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getMarketingCampaignsByKeyword"
+        }
+      ]
+    },
+    "AMPLIFY_function_getOrganizationsByKeyword_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getOrganizationsByKeyword"
+        }
+      ]
+    },
+    "AMPLIFY_function_getOrganizationsByKeyword_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getOrganizationsByKeyword"
+        }
+      ]
+    },
     "AMPLIFY_function_getPeopleByKeyword_deploymentBucketName": {
       "usedBy": [
         {
@@ -394,6 +403,38 @@
         {
           "category": "function",
           "resourceName": "getPersonByName"
+        }
+      ]
+    },
+    "AMPLIFY_function_getPublicationProductsByKeyword_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getPublicationProductsByKeyword"
+        }
+      ]
+    },
+    "AMPLIFY_function_getPublicationProductsByKeyword_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getPublicationProductsByKeyword"
+        }
+      ]
+    },
+    "AMPLIFY_function_getPublicationsByKeyword_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getPublicationsByKeyword"
+        }
+      ]
+    },
+    "AMPLIFY_function_getPublicationsByKeyword_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getPublicationsByKeyword"
         }
       ]
     },
