@@ -85,6 +85,52 @@ type NeptuneOrganization {
   size: String
 }
 
+type ZymoWebProduct {
+  uuid: String
+  sku: String
+  shopify_id: String
+  handle: String
+  command: String
+  title: String
+  body_html: String
+  vendor: String
+  type: String
+  tags: [String]
+  status: String
+  url: String
+  total_inventory_qty: Int
+  category_id: Int
+  category_name: String
+  category: String
+  custom_collections: [String]
+  smart_collections: [String]
+  image_type: String
+  image_src: String
+  image_command: String
+  image_position: Float
+  image_width: Float
+  image_height: Float
+  image_alt_text: String
+  variant_id: String
+  option1_name: String
+  option1_value: String
+  option2_name: String
+  option2_value: String
+  variant_position: Float
+  variant_price: Float
+  metafield_title_tag: String
+  metafield_custom_product: Boolean
+  metafield_highlight_a: String
+  metafield_highlight_b: String
+  metafield_highlight_c: String
+  metafield_short_description: String
+  metafield_google_product_category: String
+  metafield_custom_label_0: String
+  metafield_suggested_terms: String
+  metafield_sds_url: String
+  metafield_search_tag: String
+}
+
 type PublicationProduct {
   uuid: String!
   name: String
@@ -164,4 +210,5 @@ type Query {
   searchByName(name: String!): [NeptunePerson]
   getNodeCount: Int
   getKeywordUid(keyword: String!): String
+  getAllZymoWebProducts: [ZymoWebProduct]
 }
