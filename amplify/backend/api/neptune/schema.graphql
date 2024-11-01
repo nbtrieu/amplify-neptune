@@ -95,15 +95,15 @@ type ZymoWebProduct {
   body_html: String
   vendor: String
   type: String
-  tags: [String]
+  tags: [String!]
   status: String
   url: String
   total_inventory_qty: Int
   category_id: Int
   category_name: String
   category: String
-  custom_collections: [String]
-  smart_collections: [String]
+  custom_collections: [String!]
+  smart_collections: [String!]
   image_type: String
   image_src: String
   image_command: String

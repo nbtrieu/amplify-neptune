@@ -55,6 +55,12 @@ const NavBar = ({ signOut }) => {
           >
             All Nodes
           </NavLink>
+          <NavLink 
+            to="/zymo-web-products" 
+            className={({ isActive }) => `nav-item ${isActive ? 'active-nav-item' : ''}`}
+          >
+            Zymo Web Products
+          </NavLink>
         </div>
         <Box sx={{ flexGrow: 0 }}>
           <Tooltip title="Open settings">

@@ -11,6 +11,7 @@ import OrganizationSearchPage from './pages/OrganizationSearchPage.js';
 import NameSearchPage from './pages/NameSearchPage.js';
 import PublicationProductSearchPage from './pages/PublicationProductSearchPage.js';
 import CombinedKeywordSearchPage from './pages/CombinedKeywordSearchPage.js';
+import ZymoWebProductFilterPage from './pages/ZymoProductSearchPage.js';
 
 import '@aws-amplify/ui-react/styles.css';
 
@@ -34,6 +35,7 @@ function App() {
                 <Route path='/name' element={<NameSearchPage />} />
                 <Route path='/publication-product' element={<PublicationProductSearchPage />} />
                 <Route path='/combined-keyword' element={<CombinedKeywordSearchPage />} />
+                <Route path='/zymo-web-products' element={<ZymoWebProductFilterPage />} />
                 <Route path='/auth' element={<></>} />
               </Routes>
             </>
