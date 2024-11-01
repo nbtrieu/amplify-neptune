@@ -3,52 +3,50 @@
 
 export const getAllZymoWebProducts = /* GraphQL */ `
   query GetAllZymoWebProducts {
-    getZymoWebProducts {
-      items {
-        uuid
-        sku
-        shopify_id
-        handle
-        command
-        title
-        body_html
-        vendor
-        type
-        tags
-        status
-        url
-        total_inventory_qty
-        category_id
-        category_name
-        category
-        custom_collections
-        smart_collections
-        image_type
-        image_src
-        image_command
-        image_position
-        image_width
-        image_height
-        image_alt_text
-        variant_id
-        option1_name
-        option1_value
-        option2_name
-        option2_value
-        variant_position
-        variant_price
-        metafield_title_tag
-        metafield_custom_product
-        metafield_highlight_a
-        metafield_highlight_b
-        metafield_highlight_c
-        metafield_short_description
-        metafield_google_product_category
-        metafield_custom_label_0
-        metafield_suggested_terms
-        metafield_sds_url
-        metafield_search_tag
-      }
+    getAllZymoWebProducts {
+      uuid
+      sku
+      shopify_id
+      handle
+      command
+      title
+      body_html
+      vendor
+      type
+      tags
+      status
+      url
+      total_inventory_qty
+      category_id
+      category_name
+      category
+      custom_collections
+      smart_collections
+      image_type
+      image_src
+      image_command
+      image_position
+      image_width
+      image_height
+      image_alt_text
+      variant_id
+      option1_name
+      option1_value
+      option2_name
+      option2_value
+      variant_position
+      variant_price
+      metafield_title_tag
+      metafield_custom_product
+      metafield_highlight_a
+      metafield_highlight_b
+      metafield_highlight_c
+      metafield_short_description
+      metafield_google_product_category
+      metafield_custom_label_0
+      metafield_suggested_terms
+      metafield_sds_url
+      metafield_search_tag
     }
   }
 `;
